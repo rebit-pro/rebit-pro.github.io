@@ -11,6 +11,7 @@ import ProjectsSection from './components/ProjectsSection.vue'
 import WorkFormatSection from './components/WorkFormatSection.vue'
 import ProcessSection from './components/ProcessSection.vue'
 import ArticlesSection from './components/ArticlesSection.vue'
+import FaqSection from './components/FaqSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import SiteFooter from './components/SiteFooter.vue'
 </script>
@@ -30,6 +31,7 @@ import SiteFooter from './components/SiteFooter.vue'
         <WorkFormatSection />
         <ProcessSection />
       <ArticlesSection />
+        <FaqSection />
       <ContactSection />
       <SiteFooter />
     </div>
