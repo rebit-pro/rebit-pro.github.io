@@ -1,0 +1,54 @@
+<script setup lang="ts">
+import { contacts } from '@/data/portfolio'
+</script>
+
+<template>
+  <section id="contact" class="section section--light">
+    <v-container>
+      <div class="section__heading">
+        <div class="section__overline">Контакты</div>
+        <h2 class="section__title">Давайте обсудим задачу</h2>
+        <p class="section__description">
+          Открыт к senior backend-ролям и инженерному сотрудничеству. Напишите удобным способом.
+        </p>
+      </div>
+
+      <div class="contact__grid">
+        <v-card
+          v-for="contact in contacts"
+          :key="contact.label"
+          :href="contact.href"
+          target="_blank"
+          rel="noopener"
+          class="surface-card contact__card pa-6 text-center"
+          rounded="lg"
+          elevation="0"
+        >
+          <v-avatar size="52" color="secondary" variant="tonal" class="mb-3">
+            <v-icon size="26">{{ contact.icon }}</v-icon>
+          </v-avatar>
+          <div class="text-subtitle-1 font-weight-bold">{{ contact.label }}</div>
+          <div class="text-body-2" style="color: rgba(15, 23, 42, 0.6)">
+            {{ contact.value }}
+          </div>
+        </v-card>
+      </div>
+    </v-container>
+  </section>
+</template>
+
+<style scoped>
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.contact__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>
