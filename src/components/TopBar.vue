@@ -31,7 +31,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
         <span class="topbar__logo">R</span>
         <span class="topbar__brand-text">
           <span class="topbar__name">{{ profile.name }}</span>
-          <span class="topbar__role">{{ profile.role }}</span>
+          <span class="topbar__role">{{ profile.shortRole }}</span>
         </span>
       </a>
 

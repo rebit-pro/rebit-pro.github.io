@@ -1,4 +1,4 @@
-# rebit.pro — портфолио
+# rebit-pro.ru — портфолио
 
 Одностраничный сайт-портфолио (Vue 3 + Vuetify 3 + Vite, TypeScript).
 Визуальный язык перенесён из admin-шаблона **Barry** (Spike/Berry): тема
@@ -25,7 +25,7 @@ GitHub Pages через GitHub Actions (`.github/workflows/deploy.yml`).
 
 ### Кастомный домен
 
-Домен `rebit.pro` привязан через файл `public/CNAME`. На стороне DNS:
+Домен `rebit-pro.ru` привязан через файл `public/CNAME`. На стороне DNS:
 
 - `A` / `AAAA` apex-записи на IP GitHub Pages, либо
 - `CNAME` для `www` → `rebit-pro.github.io`.

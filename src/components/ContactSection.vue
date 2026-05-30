@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { contacts } from '@/data/portfolio'
+import { contacts, profile } from '@/data/portfolio'
 </script>
 
 <template>
@@ -9,8 +9,24 @@ import { contacts } from '@/data/portfolio'
         <div class="section__overline">Контакты</div>
         <h2 class="section__title">Давайте обсудим задачу</h2>
         <p class="section__description">
-          Открыт к senior backend-ролям и инженерному сотрудничеству. Напишите удобным способом.
+          Открыт к проектной работе: аудитам, сложным доработкам, интеграциям,
+          оптимизации и долгосрочному сопровождению PHP / Bitrix-проектов.
+          Чтобы быстрее оценить задачу, пришлите ссылку на проект, описание проблемы,
+          желаемый результат и сроки.
         </p>
+
+        <v-btn
+          :href="profile.contactHref"
+          target="_blank"
+          rel="noopener"
+          color="secondary"
+          size="large"
+          rounded="lg"
+          prepend-icon="mdi-send"
+          class="mt-6"
+        >
+          Написать в Telegram
+        </v-btn>
       </div>
 
       <div class="contact__grid">

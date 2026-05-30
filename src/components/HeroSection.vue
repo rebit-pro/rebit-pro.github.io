@@ -64,23 +64,25 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
 
           <div class="hero__actions">
             <v-btn
+              :href="profile.contactHref"
+              target="_blank"
+              rel="noopener"
               color="secondary"
               size="large"
               rounded="lg"
-              prepend-icon="mdi-folder-multiple-outline"
-              @click="scrollTo('projects')"
+              prepend-icon="mdi-send"
             >
-              Смотреть проекты
+              Обсудить задачу
             </v-btn>
             <v-btn
               variant="outlined"
               color="white"
               size="large"
               rounded="lg"
-              prepend-icon="mdi-email-outline"
-              @click="scrollTo('contact')"
+              prepend-icon="mdi-format-list-checks"
+              @click="scrollTo('services')"
             >
-              Связаться
+              Посмотреть услуги
             </v-btn>
           </div>
 

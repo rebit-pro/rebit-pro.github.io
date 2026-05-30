@@ -7,9 +7,10 @@ import { articles } from '@/data/portfolio'
     <v-container>
       <div class="section__heading">
         <div class="section__overline">Статьи</div>
-        <h2 class="section__title">Заметки об архитектуре, обмене и рефакторинге</h2>
+        <h2 class="section__title">Экспертные материалы в подготовке</h2>
         <p class="section__description">
-          Короткие технические материалы — то, чем я делюсь о проектировании систем.
+          Темы, которые помогут заказчику лучше понимать аудит, оптимизацию,
+          интеграции и безопасное развитие PHP / Bitrix-проектов.
         </p>
       </div>
 
@@ -39,6 +40,12 @@ import { articles } from '@/data/portfolio'
             <v-card-text class="pt-0 d-flex align-center text-caption" style="color: rgba(15, 23, 42, 0.6)">
               <v-icon icon="mdi-clock-outline" size="14" class="mr-1" />
               {{ article.readingTime }}
+            </v-card-text>
+
+            <v-card-text v-if="!article.link" class="pt-0">
+              <v-chip size="small" color="secondary" variant="tonal">
+                В плане публикаций
+              </v-chip>
             </v-card-text>
           </v-card>
         </v-col>
