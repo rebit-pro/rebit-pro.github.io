@@ -11,13 +11,19 @@ const codeFile = 'GetConnectionStatusUseCase.php'
 const codeHtml = `<span class="t-tag">&lt;?php</span>
 <span class="t-key">declare</span>(<span class="t-fn">strict_types</span>=<span class="t-num">1</span>);
 
-<span class="t-key">namespace</span> <span class="t-ns">Rebit\\Identity\\Application</span>;
+<span class="t-key">namespace</span> <span class="t-ns">Rebit\\Identity\\Application\\ApiConnection\\UseCase</span>;
+
+<span class="t-key">use</span> <span class="t-ns">Rebit\\Identity\\Application\\ApiConnection\\Dto\\Result\\ApiConnectionResultDto</span>;
+<span class="t-key">use</span> <span class="t-ns">Rebit\\Identity\\Domain\\ApiConnection\\Repository\\ApiConnectionRepository</span>;
+<span class="t-key">use</span> <span class="t-ns">Rebit\\Identity\\Domain\\ApiConnection\\Service\\ApiKeyEncryptor</span>;
+<span class="t-key">use</span> <span class="t-ns">Rebit\\Identity\\Domain\\ApiConnection\\Service\\ApiKeyMasker</span>;
 
 <span class="t-key">final readonly class</span> <span class="t-cls">GetConnectionStatusUseCase</span>
 {
     <span class="t-key">public function</span> <span class="t-fn">__construct</span>(
         <span class="t-key">private</span> <span class="t-cls">ApiConnectionRepository</span> <span class="t-var">$repository</span>,
         <span class="t-key">private</span> <span class="t-cls">ApiKeyEncryptor</span> <span class="t-var">$encryptor</span>,
+        <span class="t-key">private</span> <span class="t-cls">ApiKeyMasker</span> <span class="t-var">$masker</span>,
     ) {}
 
     <span class="t-key">public function</span> <span class="t-fn">execute</span>(<span class="t-cls">int</span> <span class="t-var">$userId</span>): <span class="t-cls">ApiConnectionResultDto</span>
@@ -25,10 +31,19 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
         <span class="t-var">$connection</span> = <span class="t-var">$this</span>-&gt;<span class="t-fn">repository</span>-&gt;<span class="t-fn">findByUserId</span>(<span class="t-var">$userId</span>);
 
         <span class="t-key">if</span> (<span class="t-cst">null</span> === <span class="t-var">$connection</span>) {
-            <span class="t-key">return</span> <span class="t-cls">ApiConnectionResultDto</span>::<span class="t-fn">disconnected</span>();
+            <span class="t-key">return new</span> <span class="t-cls">ApiConnectionResultDto</span>(connected: <span class="t-cst">false</span>);
         }
 
-        <span class="t-key">return</span> <span class="t-cls">ApiConnectionResultDto</span>::<span class="t-fn">connected</span>(<span class="t-var">$connection</span>);
+        <span class="t-var">$apiKey</span> = <span class="t-var">$this</span>-&gt;<span class="t-fn">encryptor</span>-&gt;<span class="t-fn">decrypt</span>(
+            <span class="t-var">$connection</span>-&gt;<span class="t-fn">getUfApiKeyEncrypted</span>(),
+        );
+
+        <span class="t-key">return new</span> <span class="t-cls">ApiConnectionResultDto</span>(
+            connected: <span class="t-cst">true</span>,
+            id: <span class="t-var">$connection</span>-&gt;<span class="t-fn">getId</span>(),
+            userId: <span class="t-var">$userId</span>,
+            maskedApiKey: <span class="t-var">$this</span>-&gt;<span class="t-fn">masker</span>-&gt;<span class="t-fn">mask</span>(<span class="t-var">$apiKey</span>),
+        );
     }
 }`
 </script>
@@ -266,7 +281,7 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
   }
 
   .hero__aside {
-    margin-top: 8px;
+    display: none;
   }
 }
 </style>
