@@ -241,9 +241,9 @@ export const contacts: readonly ContactLink[] = [
   },
   {
     label: 'Email',
-    value: 'hello@rebit.pro',
+    value: 'rebit-2017@yandex.ru',
     icon: 'mdi-email-outline',
-    href: 'mailto:hello@rebit.pro',
+    href: 'mailto:rebit-2017@yandex.ru',
   },
   {
     label: 'Telegram',
