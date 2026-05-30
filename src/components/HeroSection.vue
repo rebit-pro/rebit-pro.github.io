@@ -35,8 +35,6 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
 
 <template>
   <section id="hero" class="hero">
-    <div class="hero__bg" aria-hidden="true" />
-
     <v-container class="hero__container py-12">
       <v-row align="center" class="hero__row">
         <v-col cols="12" md="6" lg="6" class="hero__copy">
@@ -115,26 +113,6 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
   position: relative;
   color: #fff;
   overflow: hidden;
-}
-
-// Баннер-фон ~30%, как текстура поверх общего градиента секции.
-.hero__bg {
-  position: absolute;
-  inset: 0;
-  background-image: url('/hero-banner.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.3;
-  z-index: 0;
-}
-
-// Лёгкое затемнение, чтобы текст и карточка читались поверх баннера.
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(8, 18, 36, 0.55) 0%, rgba(8, 18, 36, 0.35) 100%);
-  z-index: 0;
 }
 
 .hero__container {

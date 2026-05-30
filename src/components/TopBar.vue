@@ -80,11 +80,16 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   position: sticky;
   top: 0;
   z-index: 100;
-  transition: background 0.25s ease, box-shadow 0.25s ease;
+  // По умолчанию — собственный тёмный фон, чуть контрастнее hero, с нижней границей.
+  background: rgba(6, 13, 28, 0.72);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 
   &--solid {
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(8px);
+    border-bottom-color: rgba(15, 23, 42, 0.08);
     box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
   }
 }
