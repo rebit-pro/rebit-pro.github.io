@@ -52,9 +52,12 @@ export interface ContactLink {
 
 export const profile = {
   name: 'Александр Тарасов',
-  role: 'Senior PHP Backend Developer',
-  tagline:
-    '13+ лет backend-инженерии. DDD, Enterprise-системы, Bitrix D7, RabbitMQ, Docker.',
+  role: 'PHP / Bitrix Архитектор',
+  experience: '10+ лет опыта',
+  tagline: 'Надёжная архитектура. Производительность. Масштабируемость.',
+  summary:
+    'Проектирую модульные системы на Bitrix и PHP с DDD-границами, строю ' +
+    'сложные интеграции и DevOps-процессы — от чистого кода до деплоя.',
 } as const
 
 export const navLinks: readonly NavLink[] = [
@@ -66,28 +69,25 @@ export const navLinks: readonly NavLink[] = [
   { title: 'Контакты', target: 'contact' },
 ]
 
-export const heroMetrics: readonly Metric[] = [
-  {
-    value: '13+',
-    title: 'лет в backend-разработке',
-    label: 'Промышленные системы на PHP — от монолитов до модульных платформ.',
-    icon: 'mdi-timer-sand',
-    color: 'secondary',
-  },
-  {
-    value: 'DDD',
-    title: 'доменно-ориентированный подход',
-    label: 'Чистые слои, границы контекстов и предметная модель в центре.',
-    icon: 'mdi-shape-outline',
-    color: 'info',
-  },
-  {
-    value: '24/7',
-    title: 'надёжные интеграции',
-    label: 'Событийная архитектура и устойчивый обмен через RabbitMQ.',
-    icon: 'mdi-lightning-bolt-outline',
-    color: 'success',
-  },
+export interface HeroBadge {
+  readonly title: string
+  readonly icon: string
+}
+
+// Четыре направления с баннера — короткие «опорные» чипы под заголовком hero.
+export const heroBadges: readonly HeroBadge[] = [
+  { title: 'Архитектура', icon: 'mdi-cube-outline' },
+  { title: 'Интеграции', icon: 'mdi-transit-connection-variant' },
+  { title: 'DevOps', icon: 'mdi-infinity' },
+  { title: 'Результат', icon: 'mdi-target' },
+]
+
+// «Решаю задачи, где нужны» — буллеты ценности (тоже с баннера).
+export const heroSolves: readonly string[] = [
+  'Высокая производительность и отказоустойчивость',
+  'Гибкая расширяемость и лёгкая поддержка',
+  'Безопасность и контроль изменений',
+  'Интеграции любой сложности',
 ]
 
 export const about = {
