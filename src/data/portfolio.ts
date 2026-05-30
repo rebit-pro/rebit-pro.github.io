@@ -136,8 +136,9 @@ export const audienceSegments: readonly AudienceSegment[] = [
     icon: 'mdi-handshake-outline',
     description:
       'Подключаюсь как внешний senior backend-разработчик для сложных задач, ' +
-      'аудита, архитектуры и интеграций. Возможна работа под NDA / white-label.',
-    points: ['внешний senior', 'NDA', 'white-label'],
+      'аудита, архитектуры и интеграций. Возможна работа по соглашению о ' +
+      'конфиденциальности и под брендом студии.',
+    points: ['внешний senior', 'конфиденциальность', 'под брендом студии'],
   },
   {
     title: 'Продуктовым командам',
@@ -292,8 +293,8 @@ export const faqItems: readonly FaqItem[] = [
     question: 'Можно подключиться к веб-студии как внешний PHP / Bitrix разработчик?',
     answer:
       'Да. Подключаюсь к веб-студиям и digital-агентствам как внешний backend-специалист ' +
-      'на сложные задачи, аудит, архитектуру, интеграции и legacy. Возможен формат NDA ' +
-      'и white-label.',
+      'на сложные задачи, аудит, архитектуру, интеграции и legacy. Возможна работа ' +
+      'по соглашению о конфиденциальности и под брендом студии.',
   },
   {
     question: 'Помогаете продуктовым командам с legacy PHP / Bitrix?',
@@ -375,22 +376,22 @@ export const stackGroups: readonly StackGroup[] = [
   {
     category: 'Языки',
     icon: 'mdi-language-php',
-    items: ['PHP 8.4', 'TypeScript', 'SQL', 'Bash'],
+    items: ['PHP 8.4', 'Python', 'TypeScript', 'SQL', 'Bash'],
   },
   {
     category: 'Фреймворки',
     icon: 'mdi-cube-outline',
-    items: ['Bitrix D7', 'Vue 3', 'Vuetify', 'Vite'],
+    items: ['Bitrix D7', 'Laravel', 'Symfony', 'Slim', 'Vue 3', 'Vuetify', 'Vite'],
   },
   {
     category: 'Инфраструктура',
     icon: 'mdi-docker',
-    items: ['Docker', 'Docker Compose', 'Docker Swarm', 'Makefile'],
+    items: ['Docker', 'Docker Compose', 'Docker Swarm', 'Ansible', 'Traefik', 'Makefile'],
   },
   {
     category: 'Данные и обмен',
     icon: 'mdi-database-outline',
-    items: ['MySQL', 'Redis', 'RabbitMQ', 'Elasticsearch'],
+    items: ['MySQL', 'Redis', 'Memcached', 'RabbitMQ', 'Elasticsearch'],
   },
 ]
 
