@@ -8,7 +8,7 @@ const year = 2026
   <footer class="footer">
     <v-container class="footer__inner">
       <span class="footer__text">
-        © {{ year }} {{ profile.name }}. Сделано на Vue 3 и Vuetify.
+        © {{ year }} {{ profile.name }}. Разработка, поддержка, развитие.
       </span>
 
       <div class="footer__links">
@@ -20,7 +20,7 @@ const year = 2026
           rel="noopener"
           :icon="contact.icon"
           variant="text"
-          color="secondary"
+          color="primary"
           size="small"
           :aria-label="contact.label"
         />
@@ -31,8 +31,8 @@ const year = 2026
 
 <style scoped lang="scss">
 .footer {
-  background: #f8fafc;
-  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  background: #1e293b;
+  border-top: 4px solid var(--rb-color-accent);
   padding: 24px 0;
 }
 
@@ -46,6 +46,6 @@ const year = 2026
 
 .footer__text {
   font-size: 0.875rem;
-  color: rgba(15, 23, 42, 0.6);
+  color: rgba(250, 248, 245, 0.72);
 }
 </style>

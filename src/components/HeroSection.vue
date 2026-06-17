@@ -4,36 +4,6 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
 function scrollTo(target: string): void {
   document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' })
 }
-
-// Реальный DDD-сниппет (как на баннере). Подсветка статична и безопасна —
-// контент наш, поэтому рендерим размеченный HTML через v-html.
-const codeFile = 'GetConnectionStatusUseCase.php'
-const codeHtml = `<span class="t-tag">&lt;?php</span>
-<span class="t-key">declare</span>(<span class="t-fn">strict_types</span>=<span class="t-num">1</span>);
-
-<span class="t-key">namespace</span> <span class="t-ns">Rebit\\Identity\\Application\\ApiConnection\\UseCase</span>;
-
-<span class="t-key">final readonly class</span> <span class="t-cls">GetConnectionStatusUseCase</span>
-{
-    <span class="t-key">public function</span> <span class="t-fn">__construct</span>(
-        <span class="t-key">private</span> <span class="t-cls">ApiConnectionRepository</span> <span class="t-var">$repository</span>,
-    ) {}
-
-    <span class="t-key">public function</span> <span class="t-fn">execute</span>(<span class="t-cls">int</span> <span class="t-var">$userId</span>): <span class="t-cls">ApiConnectionResultDto</span>
-    {
-        <span class="t-var">$connection</span> = <span class="t-var">$this</span>-&gt;<span class="t-fn">repository</span>-&gt;<span class="t-fn">findByUserId</span>(<span class="t-var">$userId</span>);
-
-        <span class="t-key">if</span> (<span class="t-cst">null</span> === <span class="t-var">$connection</span>) {
-            <span class="t-key">return new</span> <span class="t-cls">ApiConnectionResultDto</span>(connected: <span class="t-cst">false</span>);
-        }
-
-        <span class="t-key">return new</span> <span class="t-cls">ApiConnectionResultDto</span>(
-            connected: <span class="t-cst">true</span>,
-            id: <span class="t-var">$connection</span>-&gt;<span class="t-fn">getId</span>(),
-            userId: <span class="t-var">$userId</span>,
-        );
-    }
-}`
 </script>
 
 <template>
@@ -42,7 +12,6 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
       <v-row align="center" class="hero__row">
         <v-col cols="12" md="6" lg="6" class="hero__copy">
           <div class="hero__eyebrow">
-            <v-icon icon="mdi-shield-check" size="18" class="mr-1" />
             {{ profile.experience }}
           </div>
 
@@ -56,7 +25,7 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
               v-for="badge in heroBadges"
               :key="badge.title"
               :prepend-icon="badge.icon"
-              color="white"
+              color="secondary"
               variant="outlined"
               size="small"
               class="hero__badge"
@@ -70,18 +39,16 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
               :href="profile.contactHref"
               target="_blank"
               rel="noopener"
-              color="secondary"
+              color="primary"
               size="large"
-              rounded="lg"
               prepend-icon="mdi-send"
             >
               Обсудить задачу
             </v-btn>
             <v-btn
               variant="outlined"
-              color="white"
+              color="secondary"
               size="large"
-              rounded="lg"
               prepend-icon="mdi-format-list-checks"
               @click="scrollTo('services')"
             >
@@ -91,21 +58,35 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
 
           <ul class="hero__solves">
             <li v-for="item in heroSolves" :key="item">
-              <v-icon icon="mdi-check-circle" size="16" color="info" class="mr-2" />
+              <v-icon icon="mdi-check-circle" size="16" color="primary" class="mr-2" />
               {{ item }}
             </li>
           </ul>
         </v-col>
 
         <v-col cols="12" md="6" lg="6" class="hero__aside">
-          <div class="code-card">
-            <div class="code-card__bar">
-              <span class="code-card__dot code-card__dot--red" />
-              <span class="code-card__dot code-card__dot--amber" />
-              <span class="code-card__dot code-card__dot--green" />
-              <span class="code-card__file">{{ codeFile }}</span>
+          <div class="module-scene" aria-hidden="true">
+            <div class="module-scene__grid">
+              <span v-for="index in 36" :key="index" class="module-scene__dot" />
             </div>
-            <pre class="code-card__body"><code v-html="codeHtml" /></pre>
+            <div class="module-stack">
+              <span class="module-block module-block--slate module-block--a" />
+              <span class="module-block module-block--muted module-block--b" />
+              <span class="module-block module-block--sand module-block--c" />
+              <span class="module-block module-block--orange module-block--d" />
+              <span class="module-block module-block--muted module-block--e" />
+              <span class="module-block module-block--slate module-block--f" />
+              <span class="module-block module-block--sand module-block--g" />
+              <span class="module-block module-block--orange module-block--h" />
+            </div>
+            <div class="module-scene__caption">
+              <span class="module-scene__bracket">[</span>
+              <div>
+                <strong>код + модули + структура</strong>
+                <span>надёжная система без лишнего шума</span>
+              </div>
+              <span class="module-scene__bracket">]</span>
+            </div>
           </div>
         </v-col>
       </v-row>
@@ -116,8 +97,14 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
 <style scoped lang="scss">
 .hero {
   position: relative;
-  color: #fff;
+  color: var(--rb-color-text);
   overflow: hidden;
+  background:
+    linear-gradient(rgba(30, 41, 59, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 41, 59, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 86% 18%, rgba(233, 220, 198, 0.66), transparent 26%),
+    var(--rb-color-page);
+  background-size: 36px 36px, 36px 36px, auto, auto;
 }
 
 .hero__container {
@@ -126,7 +113,7 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
 }
 
 .hero__row {
-  min-height: min(640px, calc(100vh - 120px));
+  min-height: min(640px, calc(100vh - 96px));
 }
 
 .hero__eyebrow {
@@ -134,29 +121,43 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
   align-items: center;
   padding: 6px 14px;
   margin-bottom: 18px;
-  border: 1px solid rgba(88, 166, 255, 0.5);
-  border-radius: 999px;
-  background: rgba(30, 136, 229, 0.12);
   font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
-  color: #cfe4ff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rb-color-accent);
+
+  &::before,
+  &::after {
+    color: var(--rb-color-muted);
+    opacity: 0.44;
+  }
+
+  &::before {
+    content: '[';
+    margin-right: 8px;
+  }
+
+  &::after {
+    content: ']';
+    margin-left: 8px;
+  }
 }
 
 .hero__title {
   margin: 0 0 16px;
   font-size: clamp(2.3rem, 5vw, 3.8rem);
   line-height: 1.08;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
+  font-family: Georgia, Cambria, 'Times New Roman', serif;
+  font-weight: 800;
+  color: var(--rb-color-text);
 }
 
 .hero__tagline {
   margin: 0 0 14px;
   font-size: clamp(1.05rem, 2vw, 1.35rem);
   font-weight: 600;
-  color: #eaf2ff;
+  color: var(--rb-color-text);
 }
 
 .hero__summary {
@@ -164,7 +165,7 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
   margin: 0 0 22px;
   font-size: 1rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--rb-color-muted);
 }
 
 .hero__badges {
@@ -175,7 +176,8 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
 }
 
 .hero__badge {
-  border-color: rgba(255, 255, 255, 0.32) !important;
+  border-color: rgba(30, 41, 59, 0.18) !important;
+  background: rgba(255, 255, 255, 0.58);
 }
 
 .hero__actions {
@@ -197,71 +199,135 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
   display: flex;
   align-items: center;
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--rb-color-muted);
 }
 
-// ── IDE-карточка ──────────────────────────────────────────────
-.code-card {
-  border-radius: 16px;
+.module-scene {
+  position: relative;
+  min-height: 440px;
+  border: 1px solid rgba(30, 41, 59, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.64);
+  box-shadow: 0 28px 80px rgba(30, 41, 59, 0.12);
   overflow: hidden;
-  background: #0b1220;
-  border: 1px solid rgba(88, 166, 255, 0.22);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
 }
 
-.code-card__bar {
+.module-scene__grid {
+  position: absolute;
+  inset: 34px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 26px;
+  opacity: 0.42;
+}
+
+.module-scene__dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--rb-color-muted);
+}
+
+.module-stack {
+  position: absolute;
+  inset: 0;
+  transform: rotateX(58deg) rotateZ(-38deg) translate(40px, 34px);
+  transform-style: preserve-3d;
+}
+
+.module-block {
+  position: absolute;
+  width: 92px;
+  height: 92px;
+  border: 1px solid rgba(30, 41, 59, 0.1);
+  box-shadow: 16px 16px 0 rgba(30, 41, 59, 0.08);
+}
+
+.module-block--slate {
+  background: #1e293b;
+}
+
+.module-block--muted {
+  background: #475569;
+}
+
+.module-block--sand {
+  background: #e9dcc6;
+}
+
+.module-block--orange {
+  background: #f97316;
+}
+
+.module-block--a {
+  left: 180px;
+  top: 110px;
+}
+
+.module-block--b {
+  left: 250px;
+  top: 160px;
+}
+
+.module-block--c {
+  left: 110px;
+  top: 160px;
+}
+
+.module-block--d {
+  left: 180px;
+  top: 214px;
+}
+
+.module-block--e {
+  left: 320px;
+  top: 214px;
+}
+
+.module-block--f {
+  left: 250px;
+  top: 268px;
+}
+
+.module-block--g {
+  left: 110px;
+  top: 268px;
+}
+
+.module-block--h {
+  left: 40px;
+  top: 322px;
+}
+
+.module-scene__caption {
+  position: absolute;
+  right: 24px;
+  bottom: 22px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
-  background: #0f1830;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  gap: 12px;
+  color: var(--rb-color-text);
 }
 
-.code-card__dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
+.module-scene__caption strong,
+.module-scene__caption span {
+  display: block;
 }
 
-.code-card__dot--red {
-  background: #ff5f56;
-}
-.code-card__dot--amber {
-  background: #ffbd2e;
-}
-.code-card__dot--green {
-  background: #27c93f;
+.module-scene__caption strong {
+  font-size: 0.9rem;
 }
 
-.code-card__file {
-  margin-left: 10px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.55);
+.module-scene__caption span {
+  font-size: 0.78rem;
+  color: var(--rb-color-muted);
 }
 
-.code-card__body {
-  margin: 0;
-  padding: 20px 22px;
-  overflow-x: auto;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.82rem;
-  line-height: 1.62;
-  color: #abb2bf;
-  tab-size: 4;
+.module-scene__bracket {
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--rb-color-accent) !important;
 }
-
-// Токены подсветки (one-dark-подобная палитра).
-.code-card__body :deep(.t-tag) { color: #7f848e; }
-.code-card__body :deep(.t-key) { color: #c678dd; }
-.code-card__body :deep(.t-ns) { color: #56b6c2; }
-.code-card__body :deep(.t-cls) { color: #61afef; }
-.code-card__body :deep(.t-fn) { color: #61afef; }
-.code-card__body :deep(.t-var) { color: #e06c75; }
-.code-card__body :deep(.t-num) { color: #d19a66; }
-.code-card__body :deep(.t-cst) { color: #d19a66; }
 
 @media (max-width: 959px) {
   .hero__row {
@@ -270,6 +336,12 @@ const codeHtml = `<span class="t-tag">&lt;?php</span>
 
   .hero__aside {
     display: none;
+  }
+}
+
+@media (max-width: 599px) {
+  .hero__title {
+    font-size: 2.15rem;
   }
 }
 </style>

@@ -9,7 +9,7 @@ import { contacts, profile } from '@/data/portfolio'
         <div class="section__overline">Контакты</div>
         <h2 class="section__title">Давайте обсудим задачу</h2>
         <p class="section__description">
-          Открыт к проектной работе: аудитам, сложным доработкам, интеграциям,
+          Открыты к проектной работе: аудитам, сложным доработкам, интеграциям,
           оптимизации и долгосрочному сопровождению PHP / Bitrix-проектов.
           Чтобы быстрее оценить задачу, пришлите ссылку на проект, описание проблемы,
           желаемый результат и сроки.
@@ -19,9 +19,8 @@ import { contacts, profile } from '@/data/portfolio'
           :href="profile.contactHref"
           target="_blank"
           rel="noopener"
-          color="secondary"
+          color="primary"
           size="large"
-          rounded="lg"
           prepend-icon="mdi-send"
           class="mt-6"
         >
@@ -40,11 +39,11 @@ import { contacts, profile } from '@/data/portfolio'
           rounded="lg"
           elevation="0"
         >
-          <v-avatar size="52" color="secondary" variant="tonal" class="mb-3">
+          <v-avatar size="52" color="primary" variant="tonal" class="mb-3">
             <v-icon size="26">{{ contact.icon }}</v-icon>
           </v-avatar>
           <div class="text-subtitle-1 font-weight-bold">{{ contact.label }}</div>
-          <div class="text-body-2" style="color: rgba(15, 23, 42, 0.6)">
+          <div class="text-body-2 rb-muted">
             {{ contact.value }}
           </div>
         </v-card>

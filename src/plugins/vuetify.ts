@@ -1,15 +1,15 @@
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
-import { PurpleTheme, DarkPurpleTheme } from '@/theme/theme'
+import { ReBitStudioDarkTheme, ReBitStudioTheme } from '@/theme/theme'
 
-// Дефолты компонентов повторяют Barry: secondary-кнопки, скруглённые карточки.
+// Barry/Vuetify ergonomics with the refreshed ReBit Studio visual system.
 export const vuetify = createVuetify({
   theme: {
-    defaultTheme: 'PurpleTheme',
+    defaultTheme: 'ReBitStudioTheme',
     themes: {
-      PurpleTheme,
-      DarkPurpleTheme,
+      ReBitStudioTheme,
+      ReBitStudioDarkTheme,
     },
   },
   icons: {
@@ -19,9 +19,9 @@ export const vuetify = createVuetify({
   },
   defaults: {
     VBtn: {
-      color: 'secondary',
+      color: 'primary',
       variant: 'flat',
-      rounded: 'lg',
+      rounded: 'md',
       style: 'text-transform: none; letter-spacing: normal;',
     },
     VCard: {

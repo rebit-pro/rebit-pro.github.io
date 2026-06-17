@@ -7,10 +7,10 @@ import { workFormats } from '@/data/portfolio'
     <v-container>
       <div class="section__heading">
         <div class="section__overline">Формат работы</div>
-        <h2 class="section__title">Проектное сотрудничество как самозанятый или ИП</h2>
+        <h2 class="section__title">Проектное сотрудничество с понятным форматом</h2>
         <p class="section__description">
-          Подключаюсь к задачам гибко: от разовой консультации до долгосрочного сопровождения
-          как внешний senior backend-разработчик с официальным проектным форматом работы.
+          Подключаемся к задачам гибко: от разовой консультации до долгосрочного сопровождения
+          как внешняя инженерная команда с официальным проектным форматом работы.
         </p>
       </div>
 
@@ -32,7 +32,7 @@ import { workFormats } from '@/data/portfolio'
               </v-card-title>
             </v-card-item>
 
-            <v-card-text style="color: rgba(15, 23, 42, 0.72)">
+            <v-card-text class="rb-muted">
               {{ format.description }}
             </v-card-text>
           </v-card>

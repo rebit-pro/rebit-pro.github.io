@@ -32,7 +32,7 @@ import { architecturePrinciples } from '@/data/portfolio'
                 {{ principle.title }}
               </v-card-title>
             </v-card-item>
-            <v-card-text style="color: rgba(15, 23, 42, 0.7)">
+            <v-card-text class="rb-muted">
               {{ principle.description }}
             </v-card-text>
           </v-card>

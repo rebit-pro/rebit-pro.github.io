@@ -1,16 +1,33 @@
-// Глобальные токены и утилиты лендинга.
-// Стиль перенесён из Barry-лендинга (HomePage.vue): градиенты, секции, карточки.
+// Global tokens and landing utilities for the ReBit Studio visual refresh.
+
+:root {
+  --rb-color-text: #1e293b;
+  --rb-color-muted: #475569;
+  --rb-color-accent: #f97316;
+  --rb-color-accent-soft: #fff2e8;
+  --rb-color-sand: #e9dcc6;
+  --rb-color-page: #faf8f5;
+  --rb-color-surface: #ffffff;
+  --rb-color-line: rgba(30, 41, 59, 0.1);
+  --rb-radius-card: 8px;
+  --rb-shadow-soft: 0 14px 34px rgba(30, 41, 59, 0.08);
+}
 
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  color: var(--rb-color-text);
+  background: var(--rb-color-page);
+}
+
 .site {
-  // Тёмный hero сверху, светлый корпус ниже — как в Barry-лендинге.
   background:
-    radial-gradient(circle at top left, rgba(94, 53, 177, 0.18), transparent 28%),
-    radial-gradient(circle at top right, rgba(30, 136, 229, 0.18), transparent 34%),
-    linear-gradient(180deg, #081224 0%, #0f172a 22%, #f8fafc 22%, #f8fafc 100%);
+    linear-gradient(rgba(30, 41, 59, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 41, 59, 0.035) 1px, transparent 1px),
+    var(--rb-color-page);
+  background-size: 32px 32px;
 }
 
 .section {
@@ -18,13 +35,38 @@ html {
   scroll-margin-top: 24px;
 
   &--light {
-    background: #f8fafc;
+    background: var(--rb-color-page);
   }
 
   &--dark {
-    background: linear-gradient(135deg, #0f172a 0%, #172554 100%);
+    background:
+      linear-gradient(rgba(250, 248, 245, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(250, 248, 245, 0.035) 1px, transparent 1px),
+      #1e293b;
+    background-size: 28px 28px;
     color: #fff;
   }
+
+  &--sand {
+    background: var(--rb-color-sand);
+  }
+}
+
+.section--dark .section__title {
+  color: #fff;
+}
+
+.section--dark .section__description {
+  color: rgba(250, 248, 245, 0.74);
+}
+
+.section--dark .section__overline {
+  color: #fb923c;
+}
+
+.section--dark .section__overline::before,
+.section--dark .section__overline::after {
+  color: rgba(250, 248, 245, 0.66);
 }
 
 .section__heading {
@@ -34,11 +76,28 @@ html {
 }
 
 .section__overline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #5e35b1;
+  color: var(--rb-color-accent);
+
+  &::before,
+  &::after {
+    color: var(--rb-color-muted);
+    opacity: 0.45;
+  }
+
+  &::before {
+    content: '[';
+  }
+
+  &::after {
+    content: ']';
+  }
 }
 
 .section__title {
@@ -46,25 +105,36 @@ html {
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   line-height: 1.15;
   font-weight: 800;
+  color: var(--rb-color-text);
 }
 
 .section__description {
   margin: 0;
   font-size: 1rem;
   line-height: 1.7;
-  color: rgba(15, 23, 42, 0.7);
+  color: var(--rb-color-muted);
 }
 
-// Базовая карточка в духе UiParentCard.
+// Base card in the spirit of Barry's UiParentCard, tuned for Slate & Sand.
 .surface-card {
   height: 100%;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  background: #fff;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  border: 1px solid var(--rb-color-line);
+  border-radius: var(--rb-radius-card);
+  background: var(--rb-color-surface);
+  box-shadow: var(--rb-shadow-soft);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1);
+    border-color: rgba(249, 115, 22, 0.28);
+    box-shadow: 0 20px 44px rgba(30, 41, 59, 0.12);
   }
+}
+
+.rb-muted {
+  color: var(--rb-color-muted);
+}
+
+.rb-accent {
+  color: var(--rb-color-accent);
 }

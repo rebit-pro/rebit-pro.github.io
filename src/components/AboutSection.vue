@@ -7,9 +7,9 @@ import { about, experience } from '@/data/portfolio'
     <v-container>
       <v-row>
         <v-col cols="12" md="5">
-          <div class="section__overline">О себе</div>
-          <h2 class="section__title text-left">Инженер, а не просто кодер</h2>
-          <p class="text-body-1 mb-6" style="color: rgba(15, 23, 42, 0.72)">
+          <div class="section__overline">О студии</div>
+          <h2 class="section__title text-left">Инженерный подход без лишней сложности</h2>
+          <p class="text-body-1 mb-6 rb-muted">
             {{ about.summary }}
           </p>
 
@@ -33,14 +33,14 @@ import { about, experience } from '@/data/portfolio'
             <v-timeline-item
               v-for="item in experience"
               :key="item.period"
-              dot-color="secondary"
+              dot-color="primary"
               size="small"
             >
               <div class="text-caption text-secondary font-weight-bold mb-1">
                 {{ item.period }}
               </div>
               <div class="text-subtitle-1 font-weight-bold">{{ item.role }}</div>
-              <div class="text-body-2 mt-1" style="color: rgba(15, 23, 42, 0.7)">
+              <div class="text-body-2 mt-1 rb-muted">
                 {{ item.description }}
               </div>
             </v-timeline-item>
