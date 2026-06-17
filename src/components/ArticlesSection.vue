@@ -33,11 +33,11 @@ import { articles } from '@/data/portfolio'
               </v-card-title>
             </v-card-item>
 
-            <v-card-text class="flex-grow-1" style="color: rgba(15, 23, 42, 0.7)">
+            <v-card-text class="flex-grow-1 rb-muted">
               {{ article.excerpt }}
             </v-card-text>
 
-            <v-card-text class="pt-0 d-flex align-center text-caption" style="color: rgba(15, 23, 42, 0.6)">
+            <v-card-text class="pt-0 d-flex align-center text-caption rb-muted">
               <v-icon icon="mdi-clock-outline" size="14" class="mr-1" />
               {{ article.readingTime }}
             </v-card-text>

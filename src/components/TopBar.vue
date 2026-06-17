@@ -1,34 +1,23 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { ref } from 'vue'
 import { navLinks, profile } from '@/data/portfolio'
 
-// Адаптация PublicTopBar из Barry: прозрачная шапка над тёмным hero,
-// которая получает белый фон при скролле над светлыми секциями.
 const drawer = ref(false)
-const scrolled = ref(false)
-
-function onScroll(): void {
-  scrolled.value = window.scrollY > 24
-}
 
 function scrollTo(target: string): void {
   drawer.value = false
   document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' })
 }
-
-onMounted(() => {
-  window.addEventListener('scroll', onScroll, { passive: true })
-  onScroll()
-})
-
-onUnmounted(() => window.removeEventListener('scroll', onScroll))
 </script>
 
 <template>
-  <header class="topbar" :class="{ 'topbar--solid': scrolled }">
+  <header class="topbar">
     <v-container class="topbar__inner py-0">
       <a class="topbar__brand" href="#hero" @click.prevent="scrollTo('hero')">
-        <span class="topbar__logo">R</span>
+        <span class="topbar__logo" aria-hidden="true">
+          <span class="topbar__logo-bracket">[</span>
+          <span class="topbar__logo-r">R</span>
+        </span>
         <span class="topbar__brand-text">
           <span class="topbar__name">{{ profile.name }}</span>
           <span class="topbar__role">{{ profile.shortRole }}</span>
@@ -40,7 +29,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           v-for="link in navLinks"
           :key="link.target"
           variant="text"
-          :color="scrolled ? 'primary' : 'white'"
+          color="secondary"
           @click="scrollTo(link.target)"
         >
           {{ link.title }}
@@ -49,7 +38,8 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
       <v-btn
         class="d-none d-md-inline-flex"
-        color="secondary"
+        color="primary"
+        prepend-icon="mdi-arrow-right"
         @click="scrollTo('contact')"
       >
         Связаться
@@ -57,7 +47,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
       <v-app-bar-nav-icon
         class="d-md-none"
-        :color="scrolled ? 'primary' : 'white'"
+        color="secondary"
         @click="drawer = !drawer"
       />
     </v-container>
@@ -80,18 +70,10 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   position: sticky;
   top: 0;
   z-index: 100;
-  // По умолчанию — собственный тёмный фон, чуть контрастнее hero, с нижней границей.
-  background: rgba(6, 13, 28, 0.72);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  transition: background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-
-  &--solid {
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(8px);
-    border-bottom-color: rgba(15, 23, 42, 0.08);
-    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
-  }
+  background: rgba(250, 248, 245, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rb-color-line);
+  box-shadow: 0 6px 22px rgba(30, 41, 59, 0.06);
 }
 
 .topbar__inner {
@@ -110,17 +92,49 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 }
 
 .topbar__logo {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #1e88e5 0%, #5e35b1 100%);
-  color: #fff;
+  width: 44px;
+  height: 44px;
+  color: var(--rb-color-text);
+  font-family: Georgia, Cambria, 'Times New Roman', serif;
+  font-weight: 900;
+  font-size: 1.45rem;
+}
+
+.topbar__logo-bracket {
+  position: absolute;
+  left: 0;
+  color: var(--rb-color-accent);
+  font-family: Arial, sans-serif;
+  font-size: 2.1rem;
   font-weight: 800;
-  font-size: 1.2rem;
-  box-shadow: 0 10px 24px rgba(94, 53, 177, 0.32);
+  line-height: 1;
+}
+
+.topbar__logo-r {
+  transform: translateX(5px);
+}
+
+.topbar__logo::before,
+.topbar__logo::after {
+  position: absolute;
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--rb-color-text);
+}
+
+.topbar__logo::before {
+  top: 6px;
+  left: 16px;
+}
+
+.topbar__logo::after {
+  bottom: 7px;
+  left: 16px;
 }
 
 .topbar__brand-text {
@@ -132,22 +146,12 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 .topbar__name {
   font-weight: 800;
   font-size: 1.02rem;
-  color: #fff;
-  transition: color 0.25s ease;
+  color: var(--rb-color-text);
 }
 
 .topbar__role {
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.7);
-  transition: color 0.25s ease;
-}
-
-.topbar--solid .topbar__name {
-  color: #0f172a;
-}
-
-.topbar--solid .topbar__role {
-  color: rgba(15, 23, 42, 0.6);
+  color: var(--rb-color-muted);
 }
 
 .topbar__nav {

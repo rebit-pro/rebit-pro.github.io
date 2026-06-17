@@ -3,7 +3,7 @@ import { processSteps } from '@/data/portfolio'
 </script>
 
 <template>
-  <section id="process" class="section">
+  <section id="process" class="section section--sand">
     <v-container>
       <div class="section__heading">
         <div class="section__overline">Как работаю</div>
@@ -23,7 +23,7 @@ import { processSteps } from '@/data/portfolio'
           elevation="0"
         >
           <v-card-item class="text-center">
-            <v-avatar size="46" color="secondary" variant="tonal" class="mb-3">
+            <v-avatar size="46" color="secondary" variant="flat" class="mb-3 process-card__number">
               {{ index + 1 }}
             </v-avatar>
             <v-card-title class="text-subtitle-1 font-weight-bold text-wrap pa-0">
@@ -31,7 +31,7 @@ import { processSteps } from '@/data/portfolio'
             </v-card-title>
           </v-card-item>
 
-          <v-card-text class="text-center" style="color: rgba(15, 23, 42, 0.72)">
+          <v-card-text class="text-center rb-muted">
             {{ step.description }}
           </v-card-text>
         </v-card>
@@ -52,5 +52,10 @@ import { processSteps } from '@/data/portfolio'
 .process-card {
   position: relative;
   height: 100%;
+}
+
+.process-card__number {
+  color: #fff;
+  font-weight: 800;
 }
 </style>

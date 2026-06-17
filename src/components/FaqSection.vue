@@ -33,7 +33,7 @@ import { faqItems } from '@/data/portfolio'
             </v-card-title>
           </v-card-item>
 
-          <v-card-text style="color: rgba(15, 23, 42, 0.72)">
+          <v-card-text class="rb-muted">
             {{ item.answer }}
           </v-card-text>
         </v-card>

@@ -34,7 +34,7 @@ import { services } from '@/data/portfolio'
               </v-card-title>
             </v-card-item>
 
-            <v-card-text style="color: rgba(15, 23, 42, 0.72)">
+            <v-card-text class="rb-muted">
               {{ service.description }}
             </v-card-text>
           </v-card>
@@ -45,24 +45,7 @@ import { services } from '@/data/portfolio'
 </template>
 
 <style scoped>
-.services-section {
-  background: #f8fafc;
-}
-
-.services-section__overline {
-  color: #5e35b1;
-}
-
-.services-section__title {
-  color: #0f172a;
-}
-
-.services-section__description {
-  color: rgba(15, 23, 42, 0.72);
-}
-
 .service-card {
   height: 100%;
-  background: #fff;
 }
 </style>

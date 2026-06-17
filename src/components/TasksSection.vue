@@ -6,9 +6,9 @@ import { typicalTasks } from '@/data/portfolio'
   <section id="tasks" class="section section--dark">
     <v-container>
       <div class="section__heading">
-        <div class="section__overline" style="color: rgba(255, 255, 255, 0.72)">Типовые задачи</div>
-        <h2 class="section__title text-white">Если узнаёте свою ситуацию — можно начинать с диагностики</h2>
-        <p class="section__description" style="color: rgba(255, 255, 255, 0.74)">
+        <div class="section__overline">Типовые задачи</div>
+        <h2 class="section__title">Если узнаёте свою ситуацию — можно начинать с диагностики</h2>
+        <p class="section__description">
           Часто проекту не нужна полная перепись. Достаточно правильно найти узкое место,
           оценить риски и двигаться по этапам.
         </p>
@@ -21,10 +21,10 @@ import { typicalTasks } from '@/data/portfolio'
           cols="12"
           md="6"
         >
-          <v-card class="task-card" rounded="lg" elevation="0">
+          <v-card class="surface-card task-card" rounded="lg" elevation="0">
             <v-card-item>
               <template #prepend>
-                <v-avatar size="38" color="secondary" variant="tonal">
+                <v-avatar size="38" color="primary" variant="tonal">
                   <v-icon icon="mdi-check-circle-outline" />
                 </v-avatar>
               </template>
@@ -33,7 +33,7 @@ import { typicalTasks } from '@/data/portfolio'
               </v-card-title>
             </v-card-item>
 
-            <v-card-text style="color: rgba(15, 23, 42, 0.72)">
+            <v-card-text class="rb-muted">
               {{ task.description }}
             </v-card-text>
           </v-card>
@@ -46,8 +46,5 @@ import { typicalTasks } from '@/data/portfolio'
 <style scoped>
 .task-card {
   height: 100%;
-  background: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
 }
 </style>
