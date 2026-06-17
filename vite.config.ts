@@ -14,4 +14,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  ssr: {
+    noExternal: ['vuetify', '@mdi/font'],
+  },
 })

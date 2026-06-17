@@ -1,8 +1,10 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import { vuetify } from './plugins/vuetify'
+import { createReBitApp } from './app'
 
 import '@mdi/font/css/materialdesignicons.css'
 import './styles/landing.scss'
 
-createApp(App).use(vuetify).mount('#app')
+const { app, router } = createReBitApp()
+
+router.isReady().then(() => {
+  app.mount('#app')
+})

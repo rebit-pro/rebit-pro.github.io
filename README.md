@@ -1,8 +1,19 @@
-# rebit-pro.ru — портфолио
+# rebit-pro.ru — сайт ReBit Studio
 
-Одностраничный сайт-портфолио (Vue 3 + Vuetify 3 + Vite, TypeScript).
-Визуальный язык перенесён из admin-шаблона **Barry** (Spike/Berry): тема
-PurpleTheme, градиентный hero, BEM-карточки.
+Корпоративный сайт ReBit Studio на Vue 3, Vuetify 3, Vue Router, Vite и TypeScript.
+
+Проект развивается из лендинга в статический сайт с отдельными страницами услуг,
+кейсов, блога, контактов и privacy. Контентные сущности вынесены в `src/content`,
+брендовые данные и meta — в `src/config/site.ts`.
+
+## Структура
+
+- `src/pages` — route-level страницы.
+- `src/router` — маршруты и route-level meta.
+- `src/content` — услуги, кейсы, FAQ и статьи.
+- `src/config` — бренд, навигация и базовые SEO-данные.
+- `src/components` — переиспользуемые секции и UI-блоки.
+- `public/404.html` — fallback для прямых URL на GitHub Pages.
 
 ## Локальный запуск
 
