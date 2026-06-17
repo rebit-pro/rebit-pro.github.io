@@ -1,9 +1,5 @@
 <script setup lang="ts">
 import { heroBadges, heroSolves, profile } from '@/data/portfolio'
-
-function scrollTo(target: string): void {
-  document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' })
-}
 </script>
 
 <template>
@@ -50,7 +46,7 @@ function scrollTo(target: string): void {
               color="secondary"
               size="large"
               prepend-icon="mdi-format-list-checks"
-              @click="scrollTo('services')"
+              to="/services/"
             >
               Посмотреть услуги
             </v-btn>
