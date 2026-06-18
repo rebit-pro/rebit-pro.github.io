@@ -6,11 +6,11 @@ import { audienceSegments } from '@/data/portfolio'
   <section id="audience" class="section section--light">
     <v-container>
       <div class="section__heading">
-        <div class="section__overline">Кому помогаю</div>
-        <h2 class="section__title">Проектная PHP / Bitrix-экспертиза под разные задачи</h2>
+        <div class="section__overline">Для каких задач</div>
+        <h2 class="section__title">Проектная PHP / Bitrix-экспертиза для бизнеса</h2>
         <p class="section__description">
-          Работаю с бизнесом, веб-студиями, продуктовыми командами и заказчиками с площадок —
-          подключаюсь там, где нужен опытный backend-разработчик для сложной задачи.
+          Подключаемся там, где нужно развить сайт, каталог, интернет-магазин,
+          интеграцию или сложный backend без хаоса в коде и процессах.
         </p>
       </div>
 

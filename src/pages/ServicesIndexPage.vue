@@ -7,9 +7,10 @@ import { services } from '@/content/services'
     <section class="page-hero">
       <v-container>
         <div class="page-hero__overline">Услуги</div>
-        <h1 class="page-hero__title">Инженерные услуги ReBit Studio</h1>
+        <h1 class="page-hero__title">Услуги ReBit Studio: сайты, магазины, Bitrix и интеграции</h1>
         <p class="page-hero__description">
-          От backend-разработки и Bitrix до интеграций, DevOps, аудита и безопасного рефакторинга legacy.
+          Разработка сайта под ключ, интернет-магазина или каталога, доработка 1С-Битрикс,
+          интеграции, Vue-интерфейсы, аудит и безопасный рефакторинг.
         </p>
       </v-container>
     </section>
@@ -40,4 +41,3 @@ import { services } from '@/content/services'
     </section>
   </main>
 </template>
-

@@ -47,7 +47,7 @@ export const cases: readonly CaseItem[] = [
       'Спроектировали явный слой интеграции, обработку ошибок, повторные попытки, логирование и понятные точки контроля для команды поддержки.',
     result:
       'Интеграция стала предсказуемее: проще искать ошибки, безопаснее менять API и понятнее сопровождать обмен после релиза.',
-    relatedServices: ['integrations', 'backend-development', 'devops'],
+    relatedServices: ['integrations', 'backend-development', 'support-development'],
   },
   {
     slug: 'yurkas',
@@ -72,4 +72,3 @@ export const cases: readonly CaseItem[] = [
 export function findCase(slug: string): CaseItem | undefined {
   return cases.find((item) => item.slug === slug)
 }
-
