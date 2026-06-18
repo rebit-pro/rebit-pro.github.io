@@ -1,11 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { mainNavLinks, siteConfig } from '@/config/site'
+import { useRequestDialog } from '@/composables/useRequestDialog'
 
 const drawer = ref(false)
+const { open } = useRequestDialog()
 
 function closeDrawer(): void {
   drawer.value = false
+}
+
+function openRequest(): void {
+  drawer.value = false
+  open()
 }
 </script>
 
@@ -34,11 +41,11 @@ function closeDrawer(): void {
 
       <v-btn
         class="d-none d-md-inline-flex"
-        to="/contacts/"
         color="primary"
-        prepend-icon="mdi-arrow-right"
+        prepend-icon="mdi-message-text-outline"
+        @click="openRequest"
       >
-        Связаться
+        Оставить заявку
       </v-btn>
 
       <v-app-bar-nav-icon
@@ -59,6 +66,16 @@ function closeDrawer(): void {
           @click="closeDrawer"
         />
       </v-list>
+      <div class="pa-4">
+        <v-btn
+          color="primary"
+          block
+          prepend-icon="mdi-message-text-outline"
+          @click="openRequest"
+        >
+          Оставить заявку
+        </v-btn>
+      </div>
   </v-navigation-drawer>
 </template>
 

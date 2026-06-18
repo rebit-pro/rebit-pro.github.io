@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { contacts, profile } from '@/data/portfolio'
+import { useRequestDialog } from '@/composables/useRequestDialog'
+
+const { open } = useRequestDialog()
 </script>
 
 <template>
@@ -15,17 +18,27 @@ import { contacts, profile } from '@/data/portfolio'
           желаемый результат и сроки.
         </p>
 
-        <v-btn
-          :href="profile.contactHref"
-          target="_blank"
-          rel="noopener"
-          color="primary"
-          size="large"
-          prepend-icon="mdi-send"
-          class="mt-6"
-        >
-          Написать в Telegram
-        </v-btn>
+        <div class="contact__actions">
+          <v-btn
+            color="primary"
+            size="large"
+            prepend-icon="mdi-message-text-outline"
+            @click="open"
+          >
+            Оставить заявку
+          </v-btn>
+          <v-btn
+            :href="profile.contactHref"
+            target="_blank"
+            rel="noopener"
+            variant="outlined"
+            color="secondary"
+            size="large"
+            prepend-icon="mdi-send"
+          >
+            Написать в Telegram
+          </v-btn>
+        </div>
       </div>
 
       <div class="contact__grid">
@@ -53,6 +66,14 @@ import { contacts, profile } from '@/data/portfolio'
 </template>
 
 <style scoped>
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
 .contact__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

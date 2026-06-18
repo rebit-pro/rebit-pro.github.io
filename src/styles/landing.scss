@@ -217,6 +217,30 @@ body {
   gap: 18px;
 }
 
+// Блок «короткий ответ» в начале статьи: мягкий акцентный фон, читаемый текст.
+.article-callout {
+  padding: 22px 26px;
+  border-radius: var(--rb-radius-card);
+  background: var(--rb-color-accent-soft);
+  border-left: 4px solid var(--rb-color-accent);
+}
+
+.article-callout__label {
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rb-color-accent);
+}
+
+.article-callout__text {
+  margin: 0;
+  color: var(--rb-color-text);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
 .faq-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

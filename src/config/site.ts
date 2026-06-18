@@ -23,6 +23,15 @@ export const siteConfig = {
   sameAs: ['https://github.com/rebit-pro', 'https://t.me/rebit_pro'],
 } as const
 
+/**
+ * Адрес релея, который принимает заявку с формы и пересылает её в Telegram.
+ * Токен бота живёт ТОЛЬКО на сервере-релее, не в этом коде.
+ * На сборке можно переопределить переменной окружения VITE_REQUEST_ENDPOINT,
+ * либо замените значение по умолчанию на адрес вашего эндпоинта.
+ */
+export const requestEndpoint =
+  import.meta.env.VITE_REQUEST_ENDPOINT || 'https://api.rebit-pro.ru/telegram-form.php'
+
 export const mainNavLinks: readonly SiteNavLink[] = [
   { title: 'Услуги', href: '/services/' },
   { title: 'Цены', href: '/prices/' },
