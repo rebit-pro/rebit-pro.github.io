@@ -111,6 +111,36 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://rebit-pro.ru/blog/bitrix-performance/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rebit-pro.ru/blog/bitrix-crm-integrations/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rebit-pro.ru/blog/legacy-php-refactoring/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rebit-pro.ru/blog/ddd-in-bitrix-without-rewrite/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rebit-pro.ru/blog/thin-bitrix-components/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rebit-pro.ru/blog/bitrix-integrations-ports-adapters/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://rebit-pro.ru/contacts/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

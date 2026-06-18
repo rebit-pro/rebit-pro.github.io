@@ -9,8 +9,8 @@ const template = await readFile(resolve(distDir, 'index.html'), 'utf8')
 const { prerenderPaths, render } = await import(pathToFileURL(serverEntry).href)
 
 for (const path of prerenderPaths) {
-  const { html, title, description, canonical } = await render(path)
-  const page = injectHtml(template, { html, title, description, canonical })
+  const { html, title, description, canonical, head } = await render(path)
+  const page = injectHtml(template, { html, title, description, canonical, head })
   const target = path === '/' ? resolve(distDir, 'index.html') : resolve(distDir, trimSlashes(path), 'index.html')
 
   await mkdir(dirname(target), { recursive: true })
@@ -49,6 +49,7 @@ function injectHtml(templateHtml, page) {
       `<meta name="twitter:description" content="${escapeAttribute(page.description)}" />`,
     )
     .replace('<div id="app"></div>', `<div id="app">${page.html}</div>`)
+    .replace('</head>', `${page.head ?? ''}</head>`)
 }
 
 function trimSlashes(path) {
