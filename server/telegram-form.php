@@ -31,7 +31,7 @@ $chatId   = getenv('TELEGRAM_CHAT_ID') ?: '';
 
 // --- CORS ------------------------------------------------------------------
 
-$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+$origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
 
 if (in_array($origin, ALLOWED_ORIGINS, true)) {
     header('Access-Control-Allow-Origin: ' . $origin);

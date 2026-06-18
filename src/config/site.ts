@@ -32,6 +32,22 @@ export const siteConfig = {
 export const requestEndpoint =
   import.meta.env.VITE_REQUEST_ENDPOINT || 'https://api.rebit-pro.ru/api/v1/lead'
 
+/**
+ * Параметры загрузки файла ТЗ к заявке.
+ * Клиентская проверка — только для UX; настоящая валидация выполняется на сервере
+ * (см. UploadedFileValidator в бэкенде rebit.notification).
+ */
+export const leadFile = {
+  /** Максимальный размер файла, МБ. Согласован с серверным REBIT_NOTIFICATION_LEAD_MAX_FILE_MB. */
+  maxSizeMb: 15,
+  /** Значение атрибута accept для <input type="file">. */
+  accept: '.pdf,.doc,.docx,.xls,.xlsx,.txt,.zip,.png,.jpg,.jpeg',
+  /** Разрешённые расширения (нижний регистр, без точки) — для клиентской проверки. */
+  extensions: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt', 'zip', 'png', 'jpg', 'jpeg'],
+} as const
+
+export const leadFileMaxBytes = leadFile.maxSizeMb * 1024 * 1024
+
 export const mainNavLinks: readonly SiteNavLink[] = [
   { title: 'Услуги', href: '/services/' },
   { title: 'Цены', href: '/prices/' },
@@ -55,6 +71,11 @@ export const routeMeta = {
     title: 'Услуги и цены — разработка сайта, интернет-магазина и Bitrix',
     description:
       'Стартовые цены на сайт под ключ, интернет-магазин, доработку 1С-Битрикс и технический аудит. Оценка после диагностики.',
+  },
+  estimate: {
+    title: 'Оценка стоимости разработки по вашему ТЗ — ReBit Studio',
+    description:
+      'Пришлите ТЗ — вышлем примерный план работ и смету за 1 рабочий день. Бесплатно и конфиденциально: рассчитаем стоимость сайта, магазина или доработки Bitrix.',
   },
   portfolio: {
     title: 'Портфолио ReBit Studio — сайты, каталоги и интернет-магазины',

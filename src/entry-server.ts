@@ -1,6 +1,7 @@
 import { renderToString } from '@vue/server-renderer'
 import { siteConfig } from './config/site'
 import { articleJsonLd, findArticle } from './content/articles'
+import { estimateJsonLd } from './content/estimate'
 import { createReBitApp } from './app'
 import { getRouteSeo, prerenderPaths } from './router'
 
@@ -21,6 +22,10 @@ export async function render(url: string) {
 }
 
 function buildHead(meta: Record<string, unknown>): string {
+  if (meta.hasEstimateJsonLd === true) {
+    return estimateJsonLd(siteConfig.domain, siteConfig.name)
+  }
+
   const articleSlug = typeof meta.articleSlug === 'string' ? meta.articleSlug : undefined
 
   if (!articleSlug) {

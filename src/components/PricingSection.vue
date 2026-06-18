@@ -39,6 +39,20 @@ import { pricingItems } from '@/content/pricing'
         Итоговая смета фиксируется после короткой диагностики: объём каталога, интеграции,
         состояние текущего сайта, требования к SEO и сроки могут сильно менять трудоёмкость.
       </div>
+
+      <div class="pricing-cta">
+        <v-btn
+          to="/services/project-estimate/"
+          color="primary"
+          size="large"
+          prepend-icon="mdi-file-document-outline"
+        >
+          Рассчитать стоимость по ТЗ
+        </v-btn>
+        <p class="pricing-cta__hint rb-muted">
+          Пришлите ТЗ — вышлем план работ и смету за 1 рабочий день. Бесплатно и конфиденциально.
+        </p>
+      </div>
     </v-container>
   </section>
 </template>
@@ -77,6 +91,18 @@ import { pricingItems } from '@/content/pricing'
   font-size: 0.95rem;
   line-height: 1.65;
   text-align: center;
+}
+
+.pricing-cta {
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+.pricing-cta__hint {
+  max-width: 560px;
+  margin: 12px auto 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
 }
 </style>
 
