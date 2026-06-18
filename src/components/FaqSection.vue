@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { faqItems } from '@/data/portfolio'
+import { faqItems } from '@/content/faq'
 </script>
 
 <template>
@@ -7,10 +7,10 @@ import { faqItems } from '@/data/portfolio'
     <v-container>
       <div class="section__heading">
         <div class="section__overline">FAQ</div>
-        <h2 class="section__title">Вопросы бизнеса, студий и проектных команд</h2>
+        <h2 class="section__title">Вопросы бизнеса перед стартом работ</h2>
         <p class="section__description">
-          Короткие ответы по форматам сотрудничества, Bitrix-задачам, legacy,
-          предпроектной документации и работе с проектными площадками.
+          Короткие ответы по цене сайта, Bitrix-задачам, интернет-магазинам,
+          техническому аудиту и формату сотрудничества.
         </p>
       </div>
 

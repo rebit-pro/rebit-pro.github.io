@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { articles } from '@/data/portfolio'
+import { articles } from '@/content/articles'
 </script>
 
 <template>
@@ -9,19 +9,19 @@ import { articles } from '@/data/portfolio'
         <div class="section__overline">Статьи</div>
         <h2 class="section__title">Экспертные материалы в подготовке</h2>
         <p class="section__description">
-          Темы, которые помогут заказчику лучше понимать аудит, оптимизацию,
+          Темы, которые помогут бизнесу понимать аудит, оптимизацию,
           интеграции и безопасное развитие PHP / Bitrix-проектов.
         </p>
       </div>
 
       <v-row>
-        <v-col v-for="article in articles" :key="article.title" cols="12" md="4">
+        <v-col v-for="article in articles" :key="article.slug" cols="12" md="6" lg="4">
           <v-card
             class="surface-card d-flex flex-column"
             rounded="lg"
             elevation="0"
-            :href="article.link"
-            :target="article.link ? '_blank' : undefined"
+            :href="undefined"
+            :target="undefined"
             rel="noopener"
           >
             <v-card-item>

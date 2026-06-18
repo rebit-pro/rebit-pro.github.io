@@ -15,7 +15,7 @@ export const siteConfig = {
   domain: 'https://rebit-pro.ru',
   tagline: 'Разработка, поддержка, развитие',
   description:
-    'ReBit Studio разрабатывает и развивает цифровые продукты: PHP, 1С-Битрикс, Vue, интеграции, аудит, оптимизация и безопасный рефакторинг legacy.',
+    'ReBit Studio разрабатывает сайты под ключ, интернет-магазины, каталоги и Bitrix-проекты: PHP, Vue, интеграции, аудит, оптимизация и безопасный рефакторинг legacy.',
   email: 'rebit-2017@yandex.ru',
   telegram: 'https://t.me/rebit_pro',
   github: 'https://github.com/rebit-pro',
@@ -25,21 +25,32 @@ export const siteConfig = {
 
 export const mainNavLinks: readonly SiteNavLink[] = [
   { title: 'Услуги', href: '/services/' },
+  { title: 'Цены', href: '/prices/' },
+  { title: 'Портфолио', href: '/portfolio/' },
   { title: 'Кейсы', href: '/cases/' },
-  { title: 'О студии', href: '/about/' },
   { title: 'Блог', href: '/blog/' },
   { title: 'Контакты', href: '/contacts/' },
 ]
 
 export const routeMeta = {
   home: {
-    title: 'ReBit Studio — разработка, поддержка и развитие цифровых продуктов',
+    title: 'ReBit Studio — сайты под ключ, Bitrix, магазины и интеграции',
     description: siteConfig.description,
   },
   services: {
-    title: 'Услуги ReBit Studio — backend, Bitrix, Vue, интеграции и аудит',
+    title: 'Услуги ReBit Studio — сайт под ключ, магазин, Bitrix и интеграции',
     description:
-      'Разработка, сопровождение, интеграции, DevOps, аудит и рефакторинг legacy-проектов для бизнеса, студий и продуктовых команд.',
+      'Разработка сайта под ключ, интернет-магазина, каталога, доработка 1С-Битрикс, интеграции, аудит и поддержка для бизнеса.',
+  },
+  prices: {
+    title: 'Услуги и цены — разработка сайта, интернет-магазина и Bitrix',
+    description:
+      'Стартовые цены на сайт под ключ, интернет-магазин, доработку 1С-Битрикс и технический аудит. Оценка после диагностики.',
+  },
+  portfolio: {
+    title: 'Портфолио ReBit Studio — сайты, каталоги и интернет-магазины',
+    description:
+      'Примеры проектов ReBit Studio: интернет-магазины, каталоги товаров, сайты под ключ и интерфейсы для бизнеса.',
   },
   cases: {
     title: 'Кейсы ReBit Studio — PHP, Bitrix, интеграции и legacy',
@@ -66,4 +77,3 @@ export const routeMeta = {
     description: 'Краткая политика обработки обращений и контактных данных на сайте ReBit Studio.',
   },
 } satisfies Record<string, SiteMeta>
-

@@ -15,8 +15,12 @@ import ContactsPage from '@/pages/ContactsPage.vue'
 import HomePage from '@/pages/HomePage.vue'
 import NotFoundPage from '@/pages/NotFoundPage.vue'
 import PrivacyPage from '@/pages/PrivacyPage.vue'
+import PricesPage from '@/pages/PricesPage.vue'
+import PortfolioIndexPage from '@/pages/PortfolioIndexPage.vue'
+import PortfolioItemPage from '@/pages/PortfolioItemPage.vue'
 import ServicePage from '@/pages/ServicePage.vue'
 import ServicesIndexPage from '@/pages/ServicesIndexPage.vue'
+import { portfolioItems } from '@/content/portfolio'
 
 export const routes: readonly RouteRecordRaw[] = [
   {
@@ -31,6 +35,28 @@ export const routes: readonly RouteRecordRaw[] = [
     component: ServicesIndexPage,
     meta: routeMeta.services,
   },
+  {
+    path: '/prices/',
+    name: 'prices',
+    component: PricesPage,
+    meta: routeMeta.prices,
+  },
+  {
+    path: '/portfolio/',
+    name: 'portfolio',
+    component: PortfolioIndexPage,
+    meta: routeMeta.portfolio,
+  },
+  ...portfolioItems.map((item) => ({
+    path: `/portfolio/${item.slug}/`,
+    name: `portfolio-${item.slug}`,
+    component: PortfolioItemPage,
+    props: { slug: item.slug },
+    meta: {
+      title: `${item.title} — ${item.client} — портфолио ReBit Studio`,
+      description: item.summary,
+    },
+  })),
   ...services.map((service) => ({
     path: `/services/${service.slug}/`,
     name: `service-${service.slug}`,

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import HeroSection from '@/components/HeroSection.vue'
-import AudienceSection from '@/components/AudienceSection.vue'
 import ServicesSection from '@/components/ServicesSection.vue'
 import TasksSection from '@/components/TasksSection.vue'
 import AboutSection from '@/components/AboutSection.vue'
@@ -12,12 +11,15 @@ import ProcessSection from '@/components/ProcessSection.vue'
 import ArticlesSection from '@/components/ArticlesSection.vue'
 import FaqSection from '@/components/FaqSection.vue'
 import ContactSection from '@/components/ContactSection.vue'
+import PortfolioSection from '@/components/PortfolioSection.vue'
+import PricingSection from '@/components/PricingSection.vue'
 </script>
 
 <template>
   <HeroSection />
-  <AudienceSection />
   <ServicesSection />
+  <PricingSection />
+  <PortfolioSection />
   <TasksSection />
   <AboutSection />
   <ArchitectureSection />
@@ -29,4 +31,3 @@ import ContactSection from '@/components/ContactSection.vue'
   <FaqSection />
   <ContactSection />
 </template>
-
