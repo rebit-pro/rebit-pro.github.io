@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "autoPort": false,
+  "configurations": [
+    {
+      "name": "rebit-dev",
+      "runtimeExecutable": "wsl.exe",
+      "runtimeArgs": [
+        "-d",
+        "ubuntu",
+        "--",
+        "bash",
+        "-lc",
+        "cd /home/user/rebit-pro.github.io && PATH=\"$PWD/.tools/node/bin:$PATH\" exec npm run dev -- --host 0.0.0.0 --port 5173"
+      ],
+      "port": 5173
+    }
+  ]
+}

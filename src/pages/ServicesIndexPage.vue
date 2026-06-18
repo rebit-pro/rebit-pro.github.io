@@ -12,6 +12,16 @@ import { services } from '@/content/services'
           Разработка сайта под ключ, интернет-магазина или каталога, доработка 1С-Битрикс,
           интеграции, Vue-интерфейсы, аудит и безопасный рефакторинг.
         </p>
+        <div class="page-hero__actions">
+          <v-btn
+            color="primary"
+            to="/services/project-estimate/"
+            prepend-icon="mdi-file-document-outline"
+          >
+            Оценить проект по ТЗ
+          </v-btn>
+          <v-btn variant="outlined" color="secondary" to="/prices/">Цены</v-btn>
+        </div>
       </v-container>
     </section>
 

@@ -14,6 +14,7 @@ import BlogIndexPage from '@/pages/BlogIndexPage.vue'
 import CasePage from '@/pages/CasePage.vue'
 import CasesIndexPage from '@/pages/CasesIndexPage.vue'
 import ContactsPage from '@/pages/ContactsPage.vue'
+import EstimatePage from '@/pages/EstimatePage.vue'
 import HomePage from '@/pages/HomePage.vue'
 import NotFoundPage from '@/pages/NotFoundPage.vue'
 import PrivacyPage from '@/pages/PrivacyPage.vue'
@@ -36,6 +37,14 @@ export const routes: readonly RouteRecordRaw[] = [
     name: 'services',
     component: ServicesIndexPage,
     meta: routeMeta.services,
+  },
+  {
+    // Посадочная страница-оффер «оценка по ТЗ». Не входит в массив services,
+    // поэтому объявляем маршрут явно (до динамических /services/:slug/).
+    path: '/services/project-estimate/',
+    name: 'estimate',
+    component: EstimatePage,
+    meta: { ...routeMeta.estimate, hasEstimateJsonLd: true },
   },
   {
     path: '/prices/',
