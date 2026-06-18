@@ -1,4 +1,6 @@
 import { renderToString } from '@vue/server-renderer'
+import { siteConfig } from './config/site'
+import { articleJsonLd, findArticle } from './content/articles'
 import { createReBitApp } from './app'
 import { getRouteSeo, prerenderPaths } from './router'
 
@@ -13,7 +15,23 @@ export async function render(url: string) {
   const route = router.currentRoute.value
   const html = await renderToString(app)
   const seo = getRouteSeo(route.path, route.meta)
+  const head = buildHead(route.meta)
 
-  return { html, ...seo }
+  return { html, head, ...seo }
 }
 
+function buildHead(meta: Record<string, unknown>): string {
+  const articleSlug = typeof meta.articleSlug === 'string' ? meta.articleSlug : undefined
+
+  if (!articleSlug) {
+    return ''
+  }
+
+  const article = findArticle(articleSlug)
+
+  if (!article) {
+    return ''
+  }
+
+  return articleJsonLd(article, siteConfig.domain, siteConfig.name)
+}

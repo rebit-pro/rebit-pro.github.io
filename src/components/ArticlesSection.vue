@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { articles } from '@/content/articles'
+
+function articleTo(slug: string): string {
+  return `/blog/${slug}/`
+}
 </script>
 
 <template>
@@ -7,10 +11,10 @@ import { articles } from '@/content/articles'
     <v-container>
       <div class="section__heading">
         <div class="section__overline">Статьи</div>
-        <h2 class="section__title">Экспертные материалы в подготовке</h2>
+        <h2 class="section__title">Экспертные материалы для бизнеса</h2>
         <p class="section__description">
-          Темы, которые помогут бизнесу понимать аудит, оптимизацию,
-          интеграции и безопасное развитие PHP / Bitrix-проектов.
+          Технические темы простым языком: аудит и ускорение Bitrix, интеграции с 1С и CRM,
+          безопасный рефакторинг legacy и архитектура, которая упрощает доработки.
         </p>
       </div>
 
@@ -20,8 +24,9 @@ import { articles } from '@/content/articles'
             class="surface-card d-flex flex-column"
             rounded="lg"
             elevation="0"
-            :href="undefined"
-            :target="undefined"
+            :to="article.link ? undefined : articleTo(article.slug)"
+            :href="article.link"
+            :target="article.link ? '_blank' : undefined"
             rel="noopener"
           >
             <v-card-item>
@@ -42,14 +47,19 @@ import { articles } from '@/content/articles'
               {{ article.readingTime }}
             </v-card-text>
 
-            <v-card-text v-if="!article.link" class="pt-0">
-              <v-chip size="small" color="secondary" variant="tonal">
-                В плане публикаций
-              </v-chip>
+            <v-card-text class="pt-0">
+              <span class="text-primary font-weight-medium d-inline-flex align-center">
+                Читать статью
+                <v-icon icon="mdi-arrow-right" size="16" class="ml-1" />
+              </span>
             </v-card-text>
           </v-card>
         </v-col>
       </v-row>
+
+      <div class="text-center mt-8">
+        <v-btn variant="outlined" color="secondary" to="/blog/">Все статьи блога</v-btn>
+      </div>
     </v-container>
   </section>
 </template>

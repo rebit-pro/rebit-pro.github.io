@@ -5,9 +5,11 @@ import {
   type RouteRecordRaw,
 } from 'vue-router'
 import { routeMeta, siteConfig } from '@/config/site'
+import { articles } from '@/content/articles'
 import { cases } from '@/content/cases'
 import { services } from '@/content/services'
 import AboutPage from '@/pages/AboutPage.vue'
+import ArticlePage from '@/pages/ArticlePage.vue'
 import BlogIndexPage from '@/pages/BlogIndexPage.vue'
 import CasePage from '@/pages/CasePage.vue'
 import CasesIndexPage from '@/pages/CasesIndexPage.vue'
@@ -95,6 +97,19 @@ export const routes: readonly RouteRecordRaw[] = [
     component: BlogIndexPage,
     meta: routeMeta.blog,
   },
+  ...articles
+    .filter((article) => !article.link)
+    .map((article) => ({
+      path: `/blog/${article.slug}/`,
+      name: `article-${article.slug}`,
+      component: ArticlePage,
+      props: { slug: article.slug },
+      meta: {
+        title: article.metaTitle,
+        description: article.metaDescription,
+        articleSlug: article.slug,
+      },
+    })),
   {
     path: '/contacts/',
     name: 'contacts',
