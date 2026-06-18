@@ -22,6 +22,21 @@ npm install
 npm run dev      # http://localhost:5173
 ```
 
+## Локальный запуск в Docker
+
+Не требует установленного Node на хосте — нужен только Docker.
+
+```bash
+# dev-сервер с HMR на http://localhost:5173
+docker compose up dev
+
+# предпросмотр продакшен-сборки (vite build + prerender) на http://localhost:4173
+docker compose --profile preview up
+```
+
+Остановить контейнеры: `docker compose down`. Зависимости живут в томе
+`node_modules`; после изменения `package.json` пересоберите образ: `docker compose build`.
+
 ## Сборка
 
 ```bash
