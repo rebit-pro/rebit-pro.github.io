@@ -46,12 +46,12 @@ const relatedCases = computed(() =>
 
     <section class="section section--light">
       <v-container>
-        <v-row>
+        <v-row align="start">
           <v-col cols="12" md="8">
-            <v-card class="surface-card page-panel mb-6" color="primary" variant="tonal" elevation="0">
-              <div class="text-overline mb-2">Короткий ответ</div>
-              <p class="mb-0">{{ article.shortAnswer }}</p>
-            </v-card>
+            <div class="article-callout mb-8">
+              <div class="article-callout__label">Короткий ответ</div>
+              <p class="article-callout__text">{{ article.shortAnswer }}</p>
+            </div>
 
             <div class="article-body">
               <section v-for="section in article.sections" :key="section.heading" class="mb-8">
