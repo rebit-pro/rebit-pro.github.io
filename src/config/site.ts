@@ -30,7 +30,7 @@ export const siteConfig = {
  * либо замените значение по умолчанию на адрес вашего эндпоинта.
  */
 export const requestEndpoint =
-  import.meta.env.VITE_REQUEST_ENDPOINT || 'https://api.rebit-pro.ru/telegram-form.php'
+  import.meta.env.VITE_REQUEST_ENDPOINT || 'https://api.rebit-pro.ru/api/v1/lead'
 
 export const mainNavLinks: readonly SiteNavLink[] = [
   { title: 'Услуги', href: '/services/' },
