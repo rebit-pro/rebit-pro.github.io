@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <pattern id="agrid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0v32" fill="none" stroke="#1E293B" stroke-opacity=".05" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="aglow" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".7"/>
+      <stop offset="0.6" stop-color="#E9DCC6" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#E9DCC6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="#FAF8F5"/>
+  <rect width="512" height="512" fill="url(#agrid)"/>
+  <circle cx="256" cy="256" r="250" fill="url(#aglow)"/>
+  <circle cx="256" cy="256" r="244" fill="none" stroke="#F97316" stroke-opacity=".16" stroke-width="6"/>
+  <g transform="translate(37,53.5) scale(3.0)">
+  <path fill="#F97316" d="M18 24h23v11H30v58h11v11H18z"/>
+  <rect width="15" height="15" x="48" y="16" fill="#1E293B" rx="2"/>
+  <rect width="15" height="15" x="48" y="48" fill="#475569" rx="2"/>
+  <rect width="15" height="15" x="48" y="80" fill="#1E293B" rx="2"/>
+  <path fill="#1E293B" d="M68 29h22c22 0 38 15 38 36 0 15-8 27-21 33l21 21h-21L82 96h-1v23H68V29Zm13 13v41h10c14 0 23-8 23-20 0-13-9-21-23-21H81Z"/>
+  <path fill="#FAF8F5" d="M82 47h9c11 0 18 6 18 16 0 9-7 15-18 15h-9V47Z" opacity=".96"/>
+</g>
+</svg>

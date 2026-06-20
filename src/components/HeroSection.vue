@@ -4,7 +4,7 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
 
 <template>
   <section id="hero" class="hero">
-    <v-container class="hero__container py-12">
+    <v-container class="hero__container">
       <v-row align="center" class="hero__row">
         <v-col cols="12" md="6" lg="6" class="hero__copy">
           <div class="hero__eyebrow">
@@ -106,17 +106,19 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
 .hero__container {
   position: relative;
   z-index: 1;
+  padding-top: 44px;
+  padding-bottom: 44px;
 }
 
 .hero__row {
-  min-height: min(640px, calc(100vh - 96px));
+  min-height: min(540px, calc(100vh - 176px));
 }
 
 .hero__eyebrow {
   display: inline-flex;
   align-items: center;
-  padding: 6px 14px;
-  margin-bottom: 18px;
+  padding: 4px 12px;
+  margin-bottom: 14px;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -141,8 +143,8 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
 }
 
 .hero__title {
-  margin: 0 0 16px;
-  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  margin: 0 0 12px;
+  font-size: clamp(2.15rem, 4.6vw, 3.55rem);
   line-height: 1.08;
   font-family: Georgia, Cambria, 'Times New Roman', serif;
   font-weight: 800;
@@ -150,7 +152,7 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
 }
 
 .hero__tagline {
-  margin: 0 0 14px;
+  margin: 0 0 10px;
   font-size: clamp(1.05rem, 2vw, 1.35rem);
   font-weight: 600;
   color: var(--rb-color-text);
@@ -158,9 +160,9 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
 
 .hero__summary {
   max-width: 540px;
-  margin: 0 0 22px;
+  margin: 0 0 18px;
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.62;
   color: var(--rb-color-muted);
 }
 
@@ -168,7 +170,7 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 26px;
+  margin-bottom: 20px;
 }
 
 .hero__badge {
@@ -180,7 +182,7 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-bottom: 26px;
+  margin-bottom: 20px;
 }
 
 .hero__solves {
@@ -188,7 +190,7 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .hero__solves li {
@@ -200,7 +202,7 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
 
 .module-scene {
   position: relative;
-  min-height: 440px;
+  min-height: 380px;
   border: 1px solid rgba(30, 41, 59, 0.08);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.64);
@@ -210,10 +212,10 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
 
 .module-scene__grid {
   position: absolute;
-  inset: 34px;
+  inset: 28px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 26px;
+  gap: 22px;
   opacity: 0.42;
 }
 
@@ -227,7 +229,7 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
 .module-stack {
   position: absolute;
   inset: 0;
-  transform: rotateX(58deg) rotateZ(-38deg) translate(40px, 34px);
+  transform: rotateX(58deg) rotateZ(-38deg) translate(32px, 22px) scale(0.9);
   transform-style: preserve-3d;
 }
 
@@ -326,6 +328,11 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
 }
 
 @media (max-width: 959px) {
+  .hero__container {
+    padding-top: 36px;
+    padding-bottom: 40px;
+  }
+
   .hero__row {
     min-height: auto;
   }
@@ -336,8 +343,13 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
 }
 
 @media (max-width: 599px) {
+  .hero__container {
+    padding-top: 32px;
+    padding-bottom: 36px;
+  }
+
   .hero__title {
-    font-size: 2.15rem;
+    font-size: 2rem;
   }
 }
 </style>

@@ -31,8 +31,8 @@ body {
 }
 
 .section {
-  padding: 72px 0;
-  scroll-margin-top: 24px;
+  padding: 56px 0;
+  scroll-margin-top: 16px;
 
   &--light {
     background: var(--rb-color-page);
@@ -71,7 +71,7 @@ body {
 
 .section__heading {
   max-width: 760px;
-  margin: 0 auto 36px;
+  margin: 0 auto 28px;
   text-align: center;
 }
 
@@ -101,8 +101,8 @@ body {
 }
 
 .section__title {
-  margin: 8px 0 16px;
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin: 6px 0 12px;
+  font-size: clamp(1.7rem, 2.8vw, 2.45rem);
   line-height: 1.15;
   font-weight: 800;
   color: var(--rb-color-text);
@@ -111,7 +111,7 @@ body {
 .section__description {
   margin: 0;
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.62;
   color: var(--rb-color-muted);
 }
 
@@ -140,7 +140,7 @@ body {
 }
 
 .page-hero {
-  padding: 88px 0 64px;
+  padding: 56px 0 44px;
   background:
     radial-gradient(circle at 88% 18%, rgba(233, 220, 198, 0.72), transparent 26%),
     linear-gradient(rgba(30, 41, 59, 0.04) 1px, transparent 1px),
@@ -153,7 +153,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   color: var(--rb-color-accent);
   font-size: 0.78rem;
   font-weight: 800;
@@ -173,10 +173,10 @@ body {
 
 .page-hero__title {
   max-width: 860px;
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   color: var(--rb-color-text);
   font-family: Georgia, Cambria, 'Times New Roman', serif;
-  font-size: clamp(2.15rem, 5vw, 4rem);
+  font-size: clamp(2rem, 4.4vw, 3.55rem);
   font-weight: 800;
   line-height: 1.08;
 }
@@ -185,15 +185,15 @@ body {
   max-width: 720px;
   margin: 0;
   color: var(--rb-color-muted);
-  font-size: 1.08rem;
-  line-height: 1.7;
+  font-size: 1.04rem;
+  line-height: 1.62;
 }
 
 .page-hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 22px;
 }
 
 .page-card {
@@ -202,7 +202,7 @@ body {
 }
 
 .page-panel {
-  padding: 28px;
+  padding: 24px;
 }
 
 .page-section-title {
@@ -219,7 +219,7 @@ body {
 
 // Блок «короткий ответ» в начале статьи: мягкий акцентный фон, читаемый текст.
 .article-callout {
-  padding: 22px 26px;
+  padding: 20px 24px;
   border-radius: var(--rb-radius-card);
   background: var(--rb-color-accent-soft);
   border-left: 4px solid var(--rb-color-accent);
@@ -238,7 +238,7 @@ body {
   margin: 0;
   color: var(--rb-color-text);
   font-size: 1.05rem;
-  line-height: 1.7;
+  line-height: 1.62;
 }
 
 .faq-grid {
@@ -249,4 +249,36 @@ body {
 
 .privacy-panel {
   max-width: 820px;
+}
+
+@media (max-width: 959px) {
+  .section {
+    padding: 48px 0;
+  }
+
+  .page-hero {
+    padding: 44px 0 36px;
+  }
+
+  .section__heading {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 599px) {
+  .section {
+    padding: 40px 0;
+  }
+
+  .page-hero {
+    padding: 36px 0 32px;
+  }
+
+  .page-hero__title {
+    font-size: 1.95rem;
+  }
+
+  .page-panel {
+    padding: 20px;
+  }
 }
