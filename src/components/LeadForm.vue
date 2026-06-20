@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive, ref } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
 import { leadFile, leadFileMaxBytes, requestEndpoint } from '@/config/site'
 import { profile } from '@/data/portfolio'
 import { reachGoal } from '@/lib/metrika'
@@ -36,9 +36,52 @@ const file = ref<File | null>(null)
 const fileError = ref('')
 
 const nameRules = [(v: string) => (!!v && v.trim().length >= 2) || 'Укажите имя']
+
+// Телефон в формате +7 999 123-45-67 (11 цифр). Извлекаем цифры и приводим
+// к российскому коду: 8 → 7, локальный номер без кода → подставляем 7.
+function phoneDigits(value: string): string {
+  let digits = String(value ?? '').replace(/\D/g, '')
+
+  if (digits.startsWith('8')) {
+    digits = '7' + digits.slice(1)
+  }
+  if (digits && digits[0] !== '7') {
+    digits = '7' + digits
+  }
+
+  return digits.slice(0, 11)
+}
+
+// Форматирует строку под маску +X XXX XXX-XX-XX по мере ввода.
+function formatPhone(value: string): string {
+  const d = phoneDigits(value)
+  if ('' === d) {
+    return ''
+  }
+
+  let out = '+' + d[0]
+  if (d.length >= 2) out += ' ' + d.slice(1, 4)
+  if (d.length >= 5) out += ' ' + d.slice(4, 7)
+  if (d.length >= 8) out += '-' + d.slice(7, 9)
+  if (d.length >= 10) out += '-' + d.slice(9, 11)
+
+  return out
+}
+
+// Маска: переформатируем значение при любом изменении (ввод, вставка).
+watch(
+  () => form.phone,
+  (value) => {
+    const formatted = formatPhone(value)
+    if (formatted !== value) {
+      form.phone = formatted
+    }
+  },
+)
+
 const phoneRules = [
   (v: string) => !!v || 'Укажите телефон',
-  (v: string) => /^[+\d][\d\s()\-]{6,}$/.test((v || '').trim()) || 'Проверьте номер телефона',
+  (v: string) => phoneDigits(v).length === 11 || 'Введите номер полностью: +7 999 123-45-67',
 ]
 const emailRules = [
   // Поле необязательное: пустое значение допустимо.
