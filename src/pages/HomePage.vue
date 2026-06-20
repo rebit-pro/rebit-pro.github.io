@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import HeroSection from '@/components/HeroSection.vue'
 import ServicesSection from '@/components/ServicesSection.vue'
+import AiSolutionsSection from '@/components/AiSolutionsSection.vue'
 import AdvantagesSection from '@/components/AdvantagesSection.vue'
 import TasksSection from '@/components/TasksSection.vue'
 import AboutSection from '@/components/AboutSection.vue'
@@ -20,6 +21,7 @@ import PricingSection from '@/components/PricingSection.vue'
   <HeroSection />
   <TasksSection />
   <ServicesSection />
+  <AiSolutionsSection />
   <AdvantagesSection />
   <PortfolioSection />
   <ProjectsSection />
