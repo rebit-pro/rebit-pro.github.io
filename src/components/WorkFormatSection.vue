@@ -3,7 +3,7 @@ import { workFormats } from '@/data/portfolio'
 </script>
 
 <template>
-  <section id="work-format" class="section section--light">
+  <section id="work-format" class="section section--sand">
     <v-container>
       <div class="section__heading">
         <div class="section__overline">Формат работы</div>

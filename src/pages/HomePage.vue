@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import HeroSection from '@/components/HeroSection.vue'
 import ServicesSection from '@/components/ServicesSection.vue'
+import AdvantagesSection from '@/components/AdvantagesSection.vue'
 import TasksSection from '@/components/TasksSection.vue'
 import AboutSection from '@/components/AboutSection.vue'
 import ArchitectureSection from '@/components/ArchitectureSection.vue'
@@ -17,16 +18,17 @@ import PricingSection from '@/components/PricingSection.vue'
 
 <template>
   <HeroSection />
-  <ServicesSection />
-  <PricingSection />
-  <PortfolioSection />
   <TasksSection />
+  <ServicesSection />
+  <AdvantagesSection />
+  <PortfolioSection />
+  <ProjectsSection />
+  <PricingSection />
+  <ProcessSection />
+  <WorkFormatSection />
   <AboutSection />
   <ArchitectureSection />
   <StackSection />
-  <ProjectsSection />
-  <WorkFormatSection />
-  <ProcessSection />
   <ArticlesSection />
   <FaqSection />
   <ContactSection />

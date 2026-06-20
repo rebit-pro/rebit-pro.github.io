@@ -7,9 +7,9 @@ import { stackGroups } from '@/data/portfolio'
     <v-container>
       <div class="section__heading">
         <div class="section__overline">Технологии</div>
-        <h2 class="section__title">Стек, на котором собираю надёжные backend'ы</h2>
+        <h2 class="section__title">Стек, на котором собираем надёжные backend-системы</h2>
         <p class="section__description">
-          Инструменты, которые использую ежедневно — от языка до инфраструктуры и обмена данными.
+          Инструменты, которые используем ежедневно — от языка до инфраструктуры и обмена данными.
         </p>
       </div>
 
