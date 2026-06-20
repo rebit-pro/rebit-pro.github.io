@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { heroBadges, heroSolves, profile } from '@/data/portfolio'
+
+const visualChips = ['PHP 8.4', 'Symfony', 'RabbitMQ', 'DDD', 'ИИ'] as const
 </script>
 
 <template>
@@ -61,27 +63,64 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
         </v-col>
 
         <v-col cols="12" md="6" lg="6" class="hero__aside">
-          <div class="module-scene" aria-hidden="true">
-            <div class="module-scene__grid">
-              <span v-for="index in 36" :key="index" class="module-scene__dot" />
-            </div>
-            <div class="module-stack">
-              <span class="module-block module-block--slate module-block--a" />
-              <span class="module-block module-block--muted module-block--b" />
-              <span class="module-block module-block--sand module-block--c" />
-              <span class="module-block module-block--orange module-block--d" />
-              <span class="module-block module-block--muted module-block--e" />
-              <span class="module-block module-block--slate module-block--f" />
-              <span class="module-block module-block--sand module-block--g" />
-              <span class="module-block module-block--orange module-block--h" />
-            </div>
-            <div class="module-scene__caption">
-              <span class="module-scene__bracket">[</span>
-              <div>
-                <strong>код + модули + структура</strong>
-                <span>надёжная система без лишнего шума</span>
+          <div class="hero-visual" aria-hidden="true">
+            <span class="hero-visual__glow" />
+            <span class="hero-visual__grid" />
+
+            <span class="float-tile float-tile--orange" />
+            <span class="float-tile float-tile--sand" />
+            <span class="float-tile float-tile--slate" />
+
+            <div class="code-window">
+              <div class="cw__bar">
+                <span class="cw__dot cw__dot--red" />
+                <span class="cw__dot cw__dot--amber" />
+                <span class="cw__dot cw__dot--green" />
+                <span class="cw__tab">NotificationMessengerFactory.php</span>
+                <span class="cw__branch">main</span>
               </div>
-              <span class="module-scene__bracket">]</span>
+
+              <div class="cw__code">
+                <div class="cl"><span class="t-kw">&lt;?php</span></div>
+                <div class="cl" />
+                <div class="cl"><span class="t-kw">declare</span><span class="t-pun">(</span><span class="t-fn">strict_types</span><span class="t-pun">=</span><span class="t-num">1</span><span class="t-pun">);</span></div>
+                <div class="cl" />
+                <div class="cl"><span class="t-kw">namespace</span> <span class="t-ns">Rebit\Notification\Infrastructure\Notification\Messenger</span><span class="t-pun">;</span></div>
+                <div class="cl" />
+                <div class="cl"><span class="t-kw">use</span> <span class="t-ns">Rebit\…\Message\Handler\</span><span class="t-cls">SendNotificationMessageHandler</span><span class="t-pun">;</span></div>
+                <div class="cl"><span class="t-kw">use</span> <span class="t-ns">Rebit\…\Message\</span><span class="t-cls">SendNotificationMessage</span><span class="t-pun">;</span></div>
+                <div class="cl"><span class="t-kw">use</span> <span class="t-ns">Rebit\Share\…\Messenger\</span><span class="t-cls">AbstractMessengerFactory</span><span class="t-pun">;</span></div>
+                <div class="cl"><span class="t-kw">use</span> <span class="t-ns">Rebit\Share\…\Messenger\</span><span class="t-cls">MessengerRouteDto</span><span class="t-pun">;</span></div>
+                <div class="cl"><span class="t-kw">use</span> <span class="t-ns">Rebit\Share\…\Enum\</span><span class="t-cls">MessengerQueueEnum</span><span class="t-pun">;</span></div>
+                <div class="cl" />
+                <div class="cl"><span class="t-kw">final class</span> <span class="t-cls">NotificationMessengerFactory</span> <span class="t-kw">extends</span> <span class="t-cls">AbstractMessengerFactory</span></div>
+                <div class="cl"><span class="t-pun">{</span></div>
+                <div class="cl i1"><span class="t-cmt">/**</span></div>
+                <div class="cl i1"><span class="t-cmt"> * @return list&lt;MessengerRouteDto&gt;</span></div>
+                <div class="cl i1"><span class="t-cmt"> */</span></div>
+                <div class="cl i1"><span class="t-kw">protected static function</span> <span class="t-fn">routes</span><span class="t-pun">():</span> <span class="t-cls">array</span></div>
+                <div class="cl i1"><span class="t-pun">{</span></div>
+                <div class="cl i2"><span class="t-kw">return</span> <span class="t-pun">[</span></div>
+                <div class="cl i3"><span class="t-kw">new</span> <span class="t-cls">MessengerRouteDto</span><span class="t-pun">(</span></div>
+                <div class="cl i4"><span class="t-attr">messageClass:</span> <span class="t-cls">SendNotificationMessage</span><span class="t-pun">::</span><span class="t-const">class</span><span class="t-pun">,</span></div>
+                <div class="cl i4"><span class="t-attr">handlerClass:</span> <span class="t-cls">SendNotificationMessageHandler</span><span class="t-pun">::</span><span class="t-const">class</span><span class="t-pun">,</span></div>
+                <div class="cl i4"><span class="t-attr">queue:</span> <span class="t-cls">MessengerQueueEnum</span><span class="t-pun">::</span><span class="t-const">NOTIFICATION</span><span class="t-pun">,</span></div>
+                <div class="cl i3"><span class="t-pun">),</span></div>
+                <div class="cl i2"><span class="t-pun">];</span></div>
+                <div class="cl i1"><span class="t-pun">}</span><span class="cw__cursor" /></div>
+                <div class="cl"><span class="t-pun">}</span></div>
+              </div>
+
+              <div class="cw__status">
+                <span class="cw__status-ok">● tests passed</span>
+                <span>PHP 8.4</span>
+                <span>RabbitMQ</span>
+                <span class="cw__status-right">0 errors</span>
+              </div>
+            </div>
+
+            <div class="hero-chips">
+              <span v-for="chip in visualChips" :key="chip" class="hero-chip">{{ chip }}</span>
             </div>
           </div>
         </v-col>
@@ -200,131 +239,340 @@ import { heroBadges, heroSolves, profile } from '@/data/portfolio'
   color: var(--rb-color-muted);
 }
 
-.module-scene {
+/* ---- Правый визуал: окно кода + чипы ---- */
+.hero__aside {
+  align-self: stretch;
+  display: flex;
+}
+
+.hero-visual {
   position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
   min-height: 380px;
-  border: 1px solid rgba(30, 41, 59, 0.08);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.64);
-  box-shadow: 0 28px 80px rgba(30, 41, 59, 0.12);
-  overflow: hidden;
 }
 
-.module-scene__grid {
+.hero-visual__glow {
   position: absolute;
-  inset: 28px;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 22px;
-  opacity: 0.42;
+  z-index: 0;
+  right: -8%;
+  top: 6%;
+  width: 62%;
+  height: 62%;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.4), transparent 68%);
+  filter: blur(14px);
+  pointer-events: none;
 }
 
-.module-scene__dot {
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: var(--rb-color-muted);
-}
-
-.module-stack {
+.hero-visual__grid {
   position: absolute;
   inset: 0;
-  transform: rotateX(58deg) rotateZ(-38deg) translate(32px, 22px) scale(0.9);
-  transform-style: preserve-3d;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(30, 41, 59, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 41, 59, 0.05) 1px, transparent 1px);
+  background-size: 26px 26px;
+  -webkit-mask-image: radial-gradient(circle at 30% 30%, #000, transparent 72%);
+  mask-image: radial-gradient(circle at 30% 30%, #000, transparent 72%);
+  pointer-events: none;
 }
 
-.module-block {
+.float-tile {
   position: absolute;
-  width: 92px;
-  height: 92px;
-  border: 1px solid rgba(30, 41, 59, 0.1);
-  box-shadow: 16px 16px 0 rgba(30, 41, 59, 0.08);
+  z-index: 1;
+  border-radius: 8px;
+  box-shadow: 0 14px 30px rgba(30, 41, 59, 0.18);
+  animation: tile-float 7s ease-in-out infinite;
 }
 
-.module-block--slate {
+.float-tile--orange {
+  width: 54px;
+  height: 54px;
+  left: -18px;
+  top: 22%;
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  transform: rotate(-12deg);
+}
+
+.float-tile--sand {
+  width: 40px;
+  height: 40px;
+  right: 4%;
+  bottom: 16%;
+  background: var(--rb-color-sand);
+  animation-delay: 1.6s;
+}
+
+.float-tile--slate {
+  width: 30px;
+  height: 30px;
+  right: 24%;
+  top: -10px;
   background: #1e293b;
+  animation-delay: 3.1s;
 }
 
-.module-block--muted {
-  background: #475569;
+.code-window {
+  position: relative;
+  z-index: 2;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1f2a3d, #16202f 70%);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 34px 80px rgba(15, 23, 42, 0.4);
 }
 
-.module-block--sand {
-  background: #e9dcc6;
-}
-
-.module-block--orange {
-  background: #f97316;
-}
-
-.module-block--a {
-  left: 180px;
-  top: 110px;
-}
-
-.module-block--b {
-  left: 250px;
-  top: 160px;
-}
-
-.module-block--c {
-  left: 110px;
-  top: 160px;
-}
-
-.module-block--d {
-  left: 180px;
-  top: 214px;
-}
-
-.module-block--e {
-  left: 320px;
-  top: 214px;
-}
-
-.module-block--f {
-  left: 250px;
-  top: 268px;
-}
-
-.module-block--g {
-  left: 110px;
-  top: 268px;
-}
-
-.module-block--h {
-  left: 40px;
-  top: 322px;
-}
-
-.module-scene__caption {
-  position: absolute;
-  right: 24px;
-  bottom: 22px;
+.cw__bar {
   display: flex;
   align-items: center;
-  gap: 12px;
-  color: var(--rb-color-text);
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(15, 23, 42, 0.55);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
 }
 
-.module-scene__caption strong,
-.module-scene__caption span {
-  display: block;
+.cw__dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
 }
 
-.module-scene__caption strong {
-  font-size: 0.9rem;
+.cw__dot--red {
+  background: #ff5f57;
 }
 
-.module-scene__caption span {
+.cw__dot--amber {
+  background: #febc2e;
+}
+
+.cw__dot--green {
+  background: #28c840;
+}
+
+.cw__tab {
+  margin-left: 8px;
+  font-family: 'SFMono-Regular', ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace;
   font-size: 0.78rem;
-  color: var(--rb-color-muted);
+  color: #cbd5e1;
 }
 
-.module-scene__bracket {
-  font-size: 2rem;
-  line-height: 1;
-  color: var(--rb-color-accent) !important;
+.cw__branch {
+  margin-left: auto;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  color: #64748b;
+
+  &::before {
+    content: '⎇ ';
+    color: var(--rb-color-accent);
+  }
+}
+
+.cw__code {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  counter-reset: ln;
+  padding: 14px 18px 18px;
+  font-family: ui-monospace, 'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  line-height: 1.62;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 64px;
+    background: linear-gradient(transparent, #16202f);
+    pointer-events: none;
+  }
+}
+
+.cl {
+  counter-increment: ln;
+  position: relative;
+  padding-left: 3em;
+  white-space: nowrap;
+  color: #aebdd1;
+
+  &::before {
+    content: counter(ln);
+    position: absolute;
+    left: 0;
+    width: 2em;
+    text-align: right;
+    color: #46566e;
+  }
+}
+
+.i1 {
+  text-indent: 1.5em;
+}
+
+.i2 {
+  text-indent: 3em;
+}
+
+.i3 {
+  text-indent: 4.5em;
+}
+
+.i4 {
+  text-indent: 6em;
+}
+
+.t-kw {
+  color: #ff9f4d;
+  font-weight: 600;
+}
+
+.t-cls {
+  color: #e9dcc6;
+}
+
+.t-ns {
+  color: #8aa9cf;
+}
+
+.t-cmt {
+  color: #5d6e86;
+  font-style: italic;
+}
+
+.t-attr {
+  color: #f0b37e;
+}
+
+.t-const {
+  color: #e9c46a;
+}
+
+.t-fn {
+  color: #cbd5e1;
+}
+
+.t-num {
+  color: #e9c46a;
+}
+
+.t-pun {
+  color: #8392a8;
+}
+
+.cw__cursor {
+  display: inline-block;
+  width: 7px;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--rb-color-accent);
+  animation: cursor-blink 1.1s steps(1) infinite;
+}
+
+.cw__status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 9px 16px;
+  background: rgba(15, 23, 42, 0.6);
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  color: #8392a8;
+}
+
+.cw__status-ok {
+  color: #28c840;
+}
+
+.cw__status-right {
+  margin-left: auto;
+}
+
+.hero-chips {
+  position: absolute;
+  z-index: 3;
+  right: -6px;
+  bottom: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.hero-chip {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(30, 41, 59, 0.12);
+  box-shadow: 0 10px 24px rgba(30, 41, 59, 0.16);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--rb-color-text);
+  animation: tile-float 6s ease-in-out infinite;
+
+  &:nth-child(2) {
+    animation-delay: 0.8s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 1.6s;
+  }
+
+  &:nth-child(4) {
+    animation-delay: 2.4s;
+  }
+
+  &:nth-child(5) {
+    background: var(--rb-color-accent);
+    color: #fff;
+    border-color: transparent;
+    animation-delay: 3.2s;
+  }
+}
+
+@keyframes tile-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--rot, 0deg));
+  }
+
+  50% {
+    transform: translateY(-9px) rotate(var(--rot, 0deg));
+  }
+}
+
+.float-tile--orange {
+  --rot: -12deg;
+}
+
+@keyframes cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-tile,
+  .hero-chip,
+  .cw__cursor {
+    animation: none;
+  }
 }
 
 @media (max-width: 959px) {
