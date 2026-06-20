@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <defs>
+  <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">
+    <path d="M26 0H0v26" fill="none" stroke="#1E293B" stroke-opacity=".05" stroke-width="1"/>
+  </pattern>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.6" fill="#475569" fill-opacity=".24"/>
+  </pattern>
+  <radialGradient id="sand" cx="0.86" cy="0.14" r="0.6">
+    <stop offset="0" stop-color="#E9DCC6" stop-opacity=".75"/>
+    <stop offset="1" stop-color="#E9DCC6" stop-opacity="0"/>
+  </radialGradient></defs>
+  
+  <rect width="640" height="360" fill="#FAF8F5"/>
+  <rect width="640" height="360" fill="url(#sand)"/>
+  <rect width="640" height="360" fill="url(#grid)"/>
+
+  <g>
+    <rect x="388" y="44" width="224" height="272" rx="14" fill="#FFFFFF" fill-opacity=".64" stroke="#1E293B" stroke-opacity=".09"/>
+    <rect x="408" y="64" width="184" height="232" fill="url(#dots)" opacity=".5"/>
+    <text x="398" y="222" font-family="'DejaVu Serif', Georgia, 'Times New Roman', serif" font-size="92" font-weight="700" fill="#F97316" fill-opacity=".9">[</text>
+    <text x="604" y="222" font-family="'DejaVu Serif', Georgia, 'Times New Roman', serif" font-size="92" font-weight="700" fill="#F97316" fill-opacity=".9" text-anchor="end">]</text>
+    <ellipse cx="500" cy="280" rx="92" ry="18" fill="#1E293B" opacity=".07"/>
+    <polygon points="470.0,211.0 500.0,226.0 500.0,190.0 470.0,175.0" fill="#121923"/><polygon points="530.0,211.0 500.0,226.0 500.0,190.0 530.0,175.0" fill="#192230"/><polygon points="500.0,160.0 530.0,175.0 500.0,190.0 470.0,175.0" fill="#1E293B"/><polygon points="440.0,226.0 470.0,241.0 470.0,205.0 440.0,190.0" fill="#2b333f"/><polygon points="500.0,226.0 470.0,241.0 470.0,205.0 500.0,190.0" fill="#3a4656"/><polygon points="470.0,175.0 500.0,190.0 470.0,205.0 440.0,190.0" fill="#475569"/><polygon points="500.0,226.0 530.0,241.0 530.0,205.0 500.0,190.0" fill="#8c8477"/><polygon points="560.0,226.0 530.0,241.0 530.0,205.0 560.0,190.0" fill="#bfb4a2"/><polygon points="530.0,175.0 560.0,190.0 530.0,205.0 500.0,190.0" fill="#E9DCC6"/><polygon points="470.0,175.0 500.0,190.0 500.0,154.0 470.0,139.0" fill="#95450d"/><polygon points="530.0,175.0 500.0,190.0 500.0,154.0 530.0,139.0" fill="#cc5e12"/><polygon points="500.0,124.0 530.0,139.0 500.0,154.0 470.0,139.0" fill="#F97316"/><polygon points="470.0,241.0 500.0,256.0 500.0,220.0 470.0,205.0" fill="#8c8477"/><polygon points="530.0,241.0 500.0,256.0 500.0,220.0 530.0,205.0" fill="#bfb4a2"/><polygon points="500.0,190.0 530.0,205.0 500.0,220.0 470.0,205.0" fill="#E9DCC6"/>
+  </g>
+
+  <image href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5MDAgMTcwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+CiAgPHRpdGxlIGlkPSJ0aXRsZSI+UmVCaXQgU3R1ZGlvPC90aXRsZT4KICA8ZGVzYyBpZD0iZGVzYyI+UmVCaXQgU3R1ZGlvIGxvZ28gd2l0aCBtYXJrIGFuZCB0YWdsaW5lLjwvZGVzYz4KICA8cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjE3MCIgZmlsbD0ibm9uZSIgLz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNCAyMSkiPgogICAgPHBhdGggZmlsbD0iI0Y5NzMxNiIgZD0iTTE4IDI0aDIzdjExSDMwdjU4aDExdjExSDE4eiIgLz4KICAgIDxyZWN0IHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSIgeD0iNDgiIHk9IjE2IiBmaWxsPSIjMUUyOTNCIiByeD0iMiIgLz4KICAgIDxyZWN0IHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSIgeD0iNDgiIHk9IjQ4IiBmaWxsPSIjNDc1NTY5IiByeD0iMiIgLz4KICAgIDxyZWN0IHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSIgeD0iNDgiIHk9IjgwIiBmaWxsPSIjMUUyOTNCIiByeD0iMiIgLz4KICAgIDxwYXRoCiAgICAgIGZpbGw9IiMxRTI5M0IiCiAgICAgIGQ9Ik02OCAyOWgyMmMyMiAwIDM4IDE1IDM4IDM2IDAgMTUtOCAyNy0yMSAzM2wyMSAyMWgtMjFMODIgOTZoLTF2MjNINjhWMjlabTEzIDEzdjQxaDEwYzE0IDAgMjMtOCAyMy0yMCAwLTEzLTktMjEtMjMtMjFIODFaIgogICAgLz4KICAgIDxwYXRoIGZpbGw9IiNGQUY4RjUiIGQ9Ik04MiA0N2g5YzExIDAgMTggNiAxOCAxNiAwIDktNyAxNS0xOCAxNWgtOVY0N1oiIG9wYWNpdHk9Ii45NiIgLz4KICA8L2c+CiAgPHRleHQKICAgIHg9IjE4NCIKICAgIHk9IjkxIgogICAgZmlsbD0iIzFFMjkzQiIKICAgIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBDYW1icmlhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiCiAgICBmb250LXNpemU9IjY2IgogICAgZm9udC13ZWlnaHQ9IjcwMCIKICA+UmVCaXQgU3R1ZGlvPC90ZXh0PgogIDx0ZXh0CiAgICB4PSIxODgiCiAgICB5PSIxMzIiCiAgICBmaWxsPSIjRjk3MzE2IgogICAgZm9udC1mYW1pbHk9IkludGVyLCBSb2JvdG8sIEFyaWFsLCBzYW5zLXNlcmlmIgogICAgZm9udC1zaXplPSIyMyIKICAgIGxldHRlci1zcGFjaW5nPSI3IgogID7QoNCw0LfRgNCw0LHQvtGC0LrQsCwg0L/QvtC00LTQtdGA0LbQutCwLCDRgNCw0LfQstC40YLQuNC1PC90ZXh0Pgo8L3N2Zz4K" x="44" y="46" width="244" height="46"/>
+
+  <text x="46" y="170" fill="#1E293B" font-family="'DejaVu Serif', Georgia, 'Times New Roman', serif" font-size="31" font-weight="800">Сайты под ключ,</text>
+  <text x="46" y="208" fill="#1E293B" font-family="'DejaVu Serif', Georgia, 'Times New Roman', serif" font-size="31" font-weight="800">магазины и Bitrix</text>
+
+  <rect x="48" y="226" width="58" height="4" rx="2" fill="#F97316"/>
+
+  <text x="48" y="266" fill="#475569" font-family="'DejaVu Sans', Inter, Arial, sans-serif" font-size="15.5">PHP · 1С-Битрикс · Vue · интеграции · аудит</text>
+
+  <text x="48" y="316" fill="#F97316" font-family="'DejaVu Sans', Inter, Arial, sans-serif" font-size="17" font-weight="700">rebit-pro.ru</text>
+</svg>
