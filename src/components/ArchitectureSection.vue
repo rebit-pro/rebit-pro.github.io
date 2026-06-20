@@ -3,7 +3,7 @@ import { architecturePrinciples } from '@/data/portfolio'
 </script>
 
 <template>
-  <section id="architecture" class="section">
+  <section id="architecture" class="section section--sand">
     <v-container>
       <div class="section__heading">
         <div class="section__overline">Принципы архитектуры</div>

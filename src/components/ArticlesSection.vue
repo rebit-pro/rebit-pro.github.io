@@ -7,7 +7,7 @@ function articleTo(slug: string): string {
 </script>
 
 <template>
-  <section id="articles" class="section">
+  <section id="articles" class="section section--sand">
     <v-container>
       <div class="section__heading">
         <div class="section__overline">Статьи</div>

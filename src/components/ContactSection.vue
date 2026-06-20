@@ -6,7 +6,7 @@ const { open } = useRequestDialog()
 </script>
 
 <template>
-  <section id="contact" class="section section--light">
+  <section id="contact" class="section section--sand">
     <v-container>
       <div class="section__heading">
         <div class="section__overline">Контакты</div>

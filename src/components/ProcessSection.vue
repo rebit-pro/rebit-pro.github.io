@@ -3,10 +3,10 @@ import { processSteps } from '@/data/portfolio'
 </script>
 
 <template>
-  <section id="process" class="section section--sand">
+  <section id="process" class="section section--light">
     <v-container>
       <div class="section__heading">
-        <div class="section__overline">Как работаю</div>
+        <div class="section__overline">Как мы работаем</div>
         <h2 class="section__title">Прозрачный процесс от описания задачи до результата</h2>
         <p class="section__description">
           Сначала фиксируем задачу и ожидания в предпроектной документации,
