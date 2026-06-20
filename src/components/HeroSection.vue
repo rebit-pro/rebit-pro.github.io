@@ -67,9 +67,15 @@ const visualChips = ['PHP 8.4', 'Symfony', 'RabbitMQ', 'DDD', 'ИИ'] as const
             <span class="hero-visual__glow" />
             <span class="hero-visual__grid" />
 
-            <span class="float-tile float-tile--orange" />
-            <span class="float-tile float-tile--sand" />
-            <span class="float-tile float-tile--slate" />
+            <div class="iso">
+              <span class="iso__b iso__b--slate b1" />
+              <span class="iso__b iso__b--orange b2" />
+              <span class="iso__b iso__b--sand b3" />
+              <span class="iso__b iso__b--muted b4" />
+              <span class="iso__b iso__b--slate b5" />
+              <span class="iso__b iso__b--orange b6" />
+              <span class="iso__b iso__b--sand b7" />
+            </div>
 
             <div class="code-window">
               <div class="cw__bar">
@@ -109,6 +115,7 @@ const visualChips = ['PHP 8.4', 'Symfony', 'RabbitMQ', 'DDD', 'ИИ'] as const
                 <div class="cl i2"><span class="t-pun">];</span></div>
                 <div class="cl i1"><span class="t-pun">}</span><span class="cw__cursor" /></div>
                 <div class="cl"><span class="t-pun">}</span></div>
+                <div class="cl" />
               </div>
 
               <div class="cw__status">
@@ -279,39 +286,76 @@ const visualChips = ['PHP 8.4', 'Symfony', 'RabbitMQ', 'DDD', 'ИИ'] as const
   pointer-events: none;
 }
 
-.float-tile {
+/* Изометрическая стопка модулей (бывшая .module-scene) — выглядывает позади окна сверху. */
+.iso {
   position: absolute;
   z-index: 1;
-  border-radius: 8px;
-  box-shadow: 0 14px 30px rgba(30, 41, 59, 0.18);
-  animation: tile-float 7s ease-in-out infinite;
+  top: -34px;
+  right: 4px;
+  width: 180px;
+  height: 150px;
+  transform: rotateX(56deg) rotateZ(-42deg);
+  transform-style: preserve-3d;
+  pointer-events: none;
 }
 
-.float-tile--orange {
-  width: 54px;
-  height: 54px;
-  left: -18px;
-  top: 22%;
-  background: linear-gradient(135deg, #f97316, #fb923c);
-  transform: rotate(-12deg);
+.iso__b {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(30, 41, 59, 0.12);
+  box-shadow: 8px 8px 0 rgba(30, 41, 59, 0.1);
 }
 
-.float-tile--sand {
-  width: 40px;
-  height: 40px;
-  right: 4%;
-  bottom: 16%;
-  background: var(--rb-color-sand);
-  animation-delay: 1.6s;
-}
-
-.float-tile--slate {
-  width: 30px;
-  height: 30px;
-  right: 24%;
-  top: -10px;
+.iso__b--slate {
   background: #1e293b;
-  animation-delay: 3.1s;
+}
+
+.iso__b--muted {
+  background: #475569;
+}
+
+.iso__b--sand {
+  background: var(--rb-color-sand);
+}
+
+.iso__b--orange {
+  background: #f97316;
+}
+
+.b1 {
+  left: 50px;
+  top: 40px;
+}
+
+.b2 {
+  left: 84px;
+  top: 40px;
+}
+
+.b3 {
+  left: 33px;
+  top: 68px;
+}
+
+.b4 {
+  left: 67px;
+  top: 68px;
+}
+
+.b5 {
+  left: 101px;
+  top: 68px;
+}
+
+.b6 {
+  left: 50px;
+  top: 96px;
+}
+
+.b7 {
+  left: 84px;
+  top: 96px;
 }
 
 .code-window {
@@ -400,6 +444,7 @@ const visualChips = ['PHP 8.4', 'Symfony', 'RabbitMQ', 'DDD', 'ИИ'] as const
 .cl {
   counter-increment: ln;
   position: relative;
+  min-height: 1.62em; /* пустые строки сохраняют высоту строки кода */
   padding-left: 3em;
   white-space: nowrap;
   color: #aebdd1;
@@ -414,20 +459,21 @@ const visualChips = ['PHP 8.4', 'Symfony', 'RabbitMQ', 'DDD', 'ИИ'] as const
   }
 }
 
+/* PSR-12: 4 пробела на уровень вложенности (в ch — точная ширина символа моноширинного шрифта). */
 .i1 {
-  text-indent: 1.5em;
+  text-indent: 4ch;
 }
 
 .i2 {
-  text-indent: 3em;
+  text-indent: 8ch;
 }
 
 .i3 {
-  text-indent: 4.5em;
+  text-indent: 12ch;
 }
 
 .i4 {
-  text-indent: 6em;
+  text-indent: 16ch;
 }
 
 .t-kw {
@@ -551,10 +597,6 @@ const visualChips = ['PHP 8.4', 'Symfony', 'RabbitMQ', 'DDD', 'ИИ'] as const
   }
 }
 
-.float-tile--orange {
-  --rot: -12deg;
-}
-
 @keyframes cursor-blink {
   0%,
   50% {
@@ -568,7 +610,6 @@ const visualChips = ['PHP 8.4', 'Symfony', 'RabbitMQ', 'DDD', 'ИИ'] as const
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .float-tile,
   .hero-chip,
   .cw__cursor {
     animation: none;
