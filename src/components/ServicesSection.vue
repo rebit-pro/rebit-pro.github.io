@@ -8,11 +8,12 @@ import { services } from '@/content/services'
       <div class="section__heading">
         <div class="section__overline services-section__overline">Услуги</div>
         <h2 class="section__title services-section__title">
-          Разработка сайта, интернет-магазина и Bitrix-проекта под задачи бизнеса
+          Сайты, магазины, приложения, боты и Битрикс24 под задачи бизнеса
         </h2>
         <p class="section__description services-section__description">
-          Делаем сайты под ключ, каталоги, интернет-магазины, доработки 1С-Битрикс,
-          интеграции и технический аудит. Bitrix выделяем отдельно, но не ограничиваемся им.
+          Делаем сайты под ключ и интернет-магазины, приложения, чат-боты и мини-приложения
+          для Telegram и МАКС, внедряем и дорабатываем Битрикс24, настраиваем интеграции
+          и проводим технический аудит.
         </p>
       </div>
 

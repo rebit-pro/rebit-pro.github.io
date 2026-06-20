@@ -60,6 +60,62 @@ export const services: readonly ServiceItem[] = [
     relatedCases: ['orteka', 'shkola7gnomov', 'yurkas'],
   },
   {
+    slug: 'telegram-max-bots',
+    title: 'Чат-боты Telegram и МАКС',
+    h1: 'Разработка чат-ботов для Telegram и МАКС',
+    icon: 'mdi-robot-outline',
+    description:
+      'Делаем ботов для Telegram и МАКС: приём заявок, поддержка, уведомления, оплаты и связка с CRM или 1С — на надёжном PHP-бэкенде с очередями и логированием.',
+    tasks: [
+      'Боты для приёма заявок, поддержки и уведомлений',
+      'Сценарии продаж и оплаты прямо в чате',
+      'Связка с CRM (Битрикс24), 1С и внешними API',
+      'Надёжная доставка: очереди, повторы, логирование',
+    ],
+    technologies: ['Telegram Bot API', 'МАКС', 'PHP', 'Vue', 'RabbitMQ', 'Webhooks'],
+    faq: [
+      {
+        question: 'Делаете ботов для МАКС, а не только Telegram?',
+        answer:
+          'Да. МАКС — российский мессенджер с платформой ботов и мини-приложений. Разрабатываем под него на том же стеке, что и для Telegram, и связываем с вашими системами.',
+      },
+      {
+        question: 'Бот сможет работать с нашей CRM?',
+        answer:
+          'Да. Подключаем бота к Битрикс24, 1С или другой системе через API, с контролем ошибок и логированием обмена, чтобы заявки не терялись.',
+      },
+    ],
+    relatedCases: [],
+  },
+  {
+    slug: 'mini-apps',
+    title: 'Мини-приложения Telegram и МАКС',
+    h1: 'Разработка мини-приложений для Telegram и МАКС',
+    icon: 'mdi-application-outline',
+    description:
+      'Собираем мини-приложения внутри мессенджеров: магазин, каталог, личный кабинет, запись и оплата прямо в Telegram или МАКС — на Vue с backend и интеграциями.',
+    tasks: [
+      'Магазин, каталог и оформление заказа внутри мессенджера',
+      'Личный кабинет, запись, бронирование и оплаты',
+      'Интеграции с CRM, 1С и платёжными системами',
+      'Авторизация и безопасный обмен данными с ботом',
+    ],
+    technologies: ['Telegram Mini Apps', 'МАКС', 'Vue 3', 'Vuetify', 'PHP', 'REST API'],
+    faq: [
+      {
+        question: 'Чем мини-приложение лучше отдельного сайта?',
+        answer:
+          'Оно открывается прямо в мессенджере без установки и перехода на сайт: ниже барьер для клиента, выше конверсия, проще оплаты и уведомления.',
+      },
+      {
+        question: 'Можно связать мини-приложение с ботом и CRM?',
+        answer:
+          'Да. Мини-приложение, бот и CRM работают как единая система: заявки и заказы попадают в Битрикс24 или 1С, а клиент остаётся в мессенджере.',
+      },
+    ],
+    relatedCases: [],
+  },
+  {
     slug: 'bitrix-development',
     title: 'Разработка на 1С-Битрикс',
     h1: 'Разработка и поддержка сайтов на 1С-Битрикс',
@@ -81,6 +137,34 @@ export const services: readonly ServiceItem[] = [
       },
     ],
     relatedCases: ['orteka', 'yurkas'],
+  },
+  {
+    slug: 'bitrix24',
+    title: 'Битрикс24: внедрение и доработка',
+    h1: 'Внедрение, настройка и доработка Битрикс24',
+    icon: 'mdi-account-group-outline',
+    description:
+      'Настраиваем и дорабатываем Битрикс24 под процессы бизнеса: CRM и воронки, бизнес-процессы и роботы, интеграции с сайтом, 1С и телефонией.',
+    tasks: [
+      'Внедрение и настройка CRM: воронки, поля, права, этапы',
+      'Бизнес-процессы и роботы под ваши сценарии',
+      'Интеграции: сайт → CRM, 1С, телефония, оплаты, внешние API',
+      'Доработка портала и приложения для Маркета Битрикс24',
+    ],
+    technologies: ['Битрикс24', 'REST API', 'Вебхуки', 'Бизнес-процессы', 'PHP', '1С'],
+    faq: [
+      {
+        question: 'Чем Битрикс24 отличается от 1С-Битрикс?',
+        answer:
+          '1С-Битрикс — это CMS для сайтов, а Битрикс24 — CRM и корпоративный портал. Мы работаем и с тем, и с другим и связываем их между собой: заявки с сайта попадают прямо в CRM.',
+      },
+      {
+        question: 'Можно доработать уже настроенный Битрикс24?',
+        answer:
+          'Да. Начинаем с аудита текущих воронок, процессов и интеграций, затем дорабатываем аккуратно, не ломая рабочие сценарии отдела продаж.',
+      },
+    ],
+    relatedCases: [],
   },
   {
     slug: 'integrations',
@@ -201,4 +285,52 @@ export const services: readonly ServiceItem[] = [
 
 export function findService(slug: string): ServiceItem | undefined {
   return services.find((item) => item.slug === slug)
+}
+
+/**
+ * JSON-LD (Service + FAQPage + BreadcrumbList) для страницы услуги.
+ * Вставляется в <head> при пререндере (см. entry-server.ts).
+ */
+export function serviceJsonLd(service: ServiceItem, domain: string, organization: string): string {
+  const canonical = `${domain}/services/${service.slug}/`
+
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.h1,
+    serviceType: service.title,
+    description: service.description,
+    inLanguage: 'ru-RU',
+    url: canonical,
+    areaServed: 'RU',
+    provider: { '@type': 'Organization', name: organization, url: `${domain}/` },
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${domain}/` },
+      { '@type': 'ListItem', position: 2, name: 'Услуги', item: `${domain}/services/` },
+      { '@type': 'ListItem', position: 3, name: service.title, item: canonical },
+    ],
+  }
+
+  const schemas: object[] = [serviceSchema, breadcrumbSchema]
+
+  if (service.faq.length > 0) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: service.faq.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: { '@type': 'Answer', text: item.answer },
+      })),
+    })
+  }
+
+  return schemas
+    .map((schema) => `<script type="application/ld+json">${JSON.stringify(schema)}</script>`)
+    .join('')
 }

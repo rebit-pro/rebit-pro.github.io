@@ -7,10 +7,10 @@ import { services } from '@/content/services'
     <section class="page-hero">
       <v-container>
         <div class="page-hero__overline">Услуги</div>
-        <h1 class="page-hero__title">Услуги ReBit Studio: сайты, магазины, Bitrix и интеграции</h1>
+        <h1 class="page-hero__title">Услуги ReBit Studio: сайты, приложения, боты, Битрикс24</h1>
         <p class="page-hero__description">
-          Разработка сайта под ключ, интернет-магазина или каталога, доработка 1С-Битрикс,
-          интеграции, Vue-интерфейсы, аудит и безопасный рефакторинг.
+          Сайты под ключ и интернет-магазины, приложения и мини-приложения, чат-боты для
+          Telegram и МАКС, внедрение и доработка Битрикс24, интеграции, аудит и рефакторинг.
         </p>
         <div class="page-hero__actions">
           <v-btn
