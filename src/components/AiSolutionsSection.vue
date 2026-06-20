@@ -6,12 +6,13 @@ import { aiSolutions } from '@/data/portfolio'
   <section id="ai" class="section section--sand ai-section">
     <v-container>
       <div class="section__heading">
-        <div class="section__overline">AI для бизнеса</div>
-        <h2 class="section__title">AI-инструменты, которые приносят пользу, а не хайп</h2>
+        <div class="section__overline">ИИ для бизнеса</div>
+        <h2 class="section__title">ИИ-инструменты, которые приносят пользу, а не хайп</h2>
         <p class="section__description">
-          Внедряем AI там, где он экономит время и деньги: чат-боты и ассистенты на базе LLM,
-          автоматизация процессов в CRM, генерация контента для каталога и обработка документов.
-          Подбираем модель под ваши данные — от облачных API до self-hosted.
+          Внедряем искусственный интеллект там, где он экономит время и деньги: ИИ-чат-боты
+          и ассистенты на базе LLM, автоматизация процессов в CRM, генерация контента для
+          каталога и обработка документов. Подбираем модель под ваши данные — от облачных API
+          до self-hosted.
         </p>
       </div>
 
@@ -42,7 +43,7 @@ import { aiSolutions } from '@/data/portfolio'
 
       <div class="ai-section__actions">
         <v-btn color="primary" size="large" rounded="lg" to="/services/ai-chatbots/" append-icon="mdi-arrow-right">
-          Подробнее об AI-услугах
+          Подробнее об ИИ-услугах
         </v-btn>
       </div>
     </v-container>
