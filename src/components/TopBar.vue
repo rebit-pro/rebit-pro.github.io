@@ -94,7 +94,7 @@ function openRequest(): void {
   display: flex;
   align-items: center;
   gap: 16px;
-  height: 72px;
+  height: 64px;
 }
 
 .topbar__brand {
@@ -106,8 +106,8 @@ function openRequest(): void {
 }
 
 .topbar__logo {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   flex: 0 0 auto;
 }
 
@@ -130,5 +130,16 @@ function openRequest(): void {
 
 .topbar__nav {
   gap: 4px;
+}
+
+@media (max-width: 599px) {
+  .topbar__inner {
+    height: 60px;
+  }
+
+  .topbar__logo {
+    width: 38px;
+    height: 38px;
+  }
 }
 </style>
