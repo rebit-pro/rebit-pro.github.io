@@ -76,6 +76,7 @@ export const routes: readonly RouteRecordRaw[] = [
     meta: {
       title: `${service.title} — ReBit Studio`,
       description: service.description,
+      serviceSlug: service.slug,
     },
   })),
   {
