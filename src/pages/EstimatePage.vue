@@ -33,7 +33,9 @@ function scrollToForm(): void {
               <v-btn color="primary" size="large" prepend-icon="mdi-send" @click="scrollToForm">
                 Получить смету
               </v-btn>
-              <v-btn variant="outlined" color="secondary" to="/prices/">Посмотреть цены</v-btn>
+              <v-btn variant="outlined" color="secondary" size="large" to="/prices/">
+                Посмотреть цены
+              </v-btn>
             </div>
           </v-col>
 
