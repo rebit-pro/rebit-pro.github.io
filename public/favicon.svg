@@ -1,9 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="ReBit Studio">
   <rect width="128" height="128" rx="22" fill="#F97316" />
-  <!-- Монограмма R: равная толщина штриха, округлые окончания -->
-  <g fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M49 37V91" />
-    <path d="M49 37h20a16 16 0 0 1 0 32H49" />
-    <path d="M60 64 86 91" />
+  <!-- Монограмма R — глиф Open Sans Bold (выверенный контур шрифта) -->
+  <g transform="translate(29.33 97) scale(0.9245)">
+    <path fill="#FFFFFF" d="M24.12-58.98L24.12-39.70L29-39.70Q36.18-39.70 39.60-42.09Q43.02-44.48 43.02-49.61Q43.02-54.69 39.53-56.84Q36.04-58.98 28.71-58.98L24.12-58.98M32.18-27.39L24.12-27.39L24.12 0L8.98 0L8.98-71.39L29.79-71.39Q44.34-71.39 51.32-66.09Q58.30-60.79 58.30-50Q58.30-43.70 54.83-38.79Q51.37-33.89 45.02-31.10Q61.13-7.03 66.02 0L49.22 0" />
   </g>
 </svg>
