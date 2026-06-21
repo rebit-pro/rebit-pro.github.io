@@ -1,7 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="ReBit Studio">
-  <rect width="128" height="128" rx="26" fill="#F97316" />
-  <g transform="translate(-46,-15) scale(1.12)">
-    <path fill="#FFFFFF" d="M68 29h22c22 0 38 15 38 36 0 15-8 27-21 33l21 21h-21L82 96h-1v23H68V29Zm13 13v41h10c14 0 23-8 23-20 0-13-9-21-23-21H81Z" />
-    <path fill="#F97316" d="M82 47h9c11 0 18 6 18 16 0 9-7 15-18 15h-9V47Z" />
+  <rect width="128" height="128" rx="22" fill="#F97316" />
+  <g fill="#FFFFFF">
+    <!-- вертикальная стойка R -->
+    <rect x="40" y="34" width="18" height="60" rx="1.5" />
+    <!-- верхняя чаша (bowl) -->
+    <path d="M57 34h15c10.5 0 16 7 16 15s-5.5 15-16 15H57z" />
+    <!-- диагональная нога -->
+    <path d="M55 55h17l16 39h-17z" />
   </g>
+  <!-- внутренний контур чаши (вырез) -->
+  <path fill="#F97316" d="M58 43h13c6 0 8.5 3 8.5 6s-2.5 6-8.5 6H58z" />
 </svg>
