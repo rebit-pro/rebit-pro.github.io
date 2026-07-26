@@ -11,24 +11,25 @@ const { open } = useRequestDialog()
     <v-container>
       <div class="section__heading">
         <div class="section__overline">Услуги и цены</div>
-        <h2 class="section__title">Понятные ориентиры и фиксированная смета после диагностики</h2>
+        <h2 class="section__title">Пакеты для быстрого запуска и ориентир для сложной разработки</h2>
         <p class="section__description">
-          Для бизнеса важна не абстрактная ставка, а предсказуемость: что входит, какой результат
-          на выходе, какие риски и сколько это стоит. Поэтому сначала диагностика, потом —
-          фиксированная смета и работа по этапам.
+          Типовой сайт не должен оцениваться как сложная информационная система. Для лендинга,
+          сайта-визитки и микро-MVP показываем понятный состав, цену и срок. Битрикс, интеграции,
+          платежи и нестандартную логику считаем отдельно после короткого разбора.
         </p>
       </div>
 
-      <!-- Входной оффер (трипвайр): дешёвый безрисковый первый шаг -->
+      <!-- Бесплатный первый шаг: проверяем формат и границы пакета. -->
       <v-card class="surface-card entry-offer" rounded="lg" elevation="0">
         <div class="entry-offer__main">
           <div class="entry-offer__badge">С этого удобно начать</div>
           <h3 class="entry-offer__title">{{ entryOffer.title }}</h3>
           <div class="entry-offer__price">{{ entryOffer.price }}</div>
+          <div class="entry-offer__term">{{ entryOffer.term }}</div>
           <p class="entry-offer__target">{{ entryOffer.target }}</p>
           <p class="rb-muted entry-offer__desc">{{ entryOffer.description }}</p>
-          <v-btn color="primary" size="large" prepend-icon="mdi-magnify-scan" @click="open">
-            Заказать диагностику
+          <v-btn color="primary" size="large" prepend-icon="mdi-message-text-outline" @click="open">
+            Обсудить задачу
           </v-btn>
         </div>
         <ul class="entry-offer__list">
@@ -45,6 +46,7 @@ const { open } = useRequestDialog()
             <v-card-title class="pricing-card__title text-wrap">{{ item.title }}</v-card-title>
             <v-card-text>
               <div class="pricing-card__price">{{ item.price }}</div>
+              <div class="pricing-card__term">{{ item.term }}</div>
               <p class="pricing-card__target">{{ item.target }}</p>
               <p class="rb-muted">{{ item.description }}</p>
               <v-list bg-color="transparent" class="pa-0 mt-3">
@@ -61,8 +63,9 @@ const { open } = useRequestDialog()
       </v-row>
 
       <div class="pricing-note">
-        Цены — ориентир. Итоговая смета фиксируется после короткой диагностики: объём каталога,
-        интеграции, состояние текущего сайта, требования к SEO и сроки могут сильно менять трудоёмкость.
+        Пакетная цена действует, пока задача помещается в указанный состав. При меньшем бюджете
+        сокращаем объём, а не качество. Домен, хостинг, лицензии, тексты с нуля, реклама,
+        CRM/1С/платёжные интеграции и SEO-продвижение после запуска считаются отдельно.
       </div>
 
       <!-- Снятие риска -->
@@ -91,7 +94,7 @@ const { open } = useRequestDialog()
           Рассчитать стоимость по ТЗ
         </v-btn>
         <p class="pricing-cta__hint rb-muted">
-          Пришлите ТЗ — вышлем план работ и смету за 1 рабочий день. Бесплатно и конфиденциально.
+          Пришлите ТЗ или короткое описание — проверим, подходит ли пакет, и обозначим следующий шаг.
         </p>
       </div>
     </v-container>
@@ -140,6 +143,14 @@ const { open } = useRequestDialog()
   color: var(--rb-color-accent);
 }
 
+.entry-offer__term,
+.pricing-card__term {
+  margin-top: 2px;
+  color: var(--rb-color-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
 .entry-offer__target {
   margin: 6px 0 10px;
   font-weight: 700;
@@ -180,7 +191,7 @@ const { open } = useRequestDialog()
 }
 
 .pricing-card__price {
-  margin-bottom: 10px;
+  margin-bottom: 2px;
   color: var(--rb-color-accent);
   font-size: 1.35rem;
   font-weight: 900;
@@ -188,7 +199,7 @@ const { open } = useRequestDialog()
 
 .pricing-card__target {
   min-height: 64px;
-  margin: 0 0 14px;
+  margin: 10px 0 14px;
   color: var(--rb-color-text);
   font-weight: 700;
   line-height: 1.45;

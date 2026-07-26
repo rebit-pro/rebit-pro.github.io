@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { services } from '@/content/services'
+
+const featuredServices = services.filter((service) => service.featured)
 </script>
 
 <template>
@@ -8,18 +10,18 @@ import { services } from '@/content/services'
       <div class="section__heading">
         <div class="section__overline services-section__overline">Услуги</div>
         <h2 class="section__title services-section__title">
-          Сайты, магазины, приложения, боты и Битрикс24 под задачи бизнеса
+          Восемь основных направлений — от лендинга до сложной интеграции
         </h2>
         <p class="section__description services-section__description">
-          Делаем сайты под ключ и интернет-магазины, приложения, чат-боты и мини-приложения
-          для Telegram и МАКС, внедряем и дорабатываем Битрикс24, настраиваем интеграции,
-          внедряем ИИ-инструменты и проводим технический аудит.
+          Типовые сайты запускаем быстро и по фиксированному составу. Для личных кабинетов,
+          платежей, 1С, CRM и сложной логики включаем инженерный Deep-режим. MAX, Telegram
+          и 1С-Битрикс развиваем как самостоятельные направления.
         </p>
       </div>
 
       <v-row>
         <v-col
-          v-for="service in services"
+          v-for="service in featuredServices"
           :key="service.slug"
           cols="12"
           sm="6"
@@ -37,16 +39,22 @@ import { services } from '@/content/services'
 
             <v-card-text class="rb-muted">
               {{ service.description }}
+              <div v-if="service.price" class="service-card__price">{{ service.price }}</div>
             </v-card-text>
 
-            <v-card-actions class="px-4 pb-4 pt-0">
-              <v-btn variant="text" color="primary" append-icon="mdi-arrow-right">
-                Подробнее
-              </v-btn>
+            <v-card-actions class="px-4 pb-4 pt-0 service-card__link">
+              <span>Подробнее</span>
+              <v-icon icon="mdi-arrow-right" size="20" />
             </v-card-actions>
           </v-card>
         </v-col>
       </v-row>
+
+      <div class="services-section__more">
+        <v-btn variant="outlined" color="secondary" to="/services/" append-icon="mdi-arrow-right">
+          Все услуги
+        </v-btn>
+      </div>
     </v-container>
   </section>
 </template>
@@ -54,5 +62,23 @@ import { services } from '@/content/services'
 <style scoped>
 .service-card {
   height: 100%;
+}
+
+.service-card__price {
+  margin-top: 14px;
+  color: var(--rb-color-accent);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.service-card__link {
+  gap: 6px;
+  color: var(--rb-color-accent);
+  font-weight: 800;
+}
+
+.services-section__more {
+  margin-top: 28px;
+  text-align: center;
 }
 </style>
