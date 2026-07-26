@@ -9,8 +9,8 @@ import { faqItems } from '@/content/faq'
         <div class="section__overline">FAQ</div>
         <h2 class="section__title">Вопросы бизнеса перед стартом работ</h2>
         <p class="section__description">
-          Короткие ответы по цене сайта, Bitrix-задачам, интернет-магазинам,
-          техническому аудиту и формату сотрудничества.
+          Короткие ответы по ценам, Vibe и Deep Coding, микро-MVP, MAX, Telegram,
+          1С-Битрикс и интеграциям.
         </p>
       </div>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { services } from '@/content/services'
+import { serviceGroups, services } from '@/content/services'
 </script>
 
 <template>
@@ -7,10 +7,11 @@ import { services } from '@/content/services'
     <section class="page-hero">
       <v-container>
         <div class="page-hero__overline">Услуги</div>
-        <h1 class="page-hero__title">Услуги ReBit Studio: сайты, приложения, боты, Битрикс24</h1>
+        <h1 class="page-hero__title">Сайты, веб-сервисы, чат-боты и интеграции для бизнеса</h1>
         <p class="page-hero__description">
-          Сайты под ключ и интернет-магазины, приложения и мини-приложения, чат-боты для
-          Telegram и МАКС, внедрение и доработка Битрикс24, интеграции, аудит и рефакторинг.
+          Быстро запускаем типовые сайты через Vibe Coding, сложные продукты ведём в
+          Deep Coding. Отдельно разрабатываем ботов и мини-приложения для MAX и Telegram,
+          работаем с 1С-Битрикс, Битрикс24, CRM и внешними API.
         </p>
         <div class="page-hero__actions">
           <v-btn
@@ -25,10 +26,27 @@ import { services } from '@/content/services'
       </v-container>
     </section>
 
-    <section class="section section--light">
+    <section
+      v-for="(group, index) in serviceGroups"
+      :key="group.id"
+      class="section"
+      :class="index % 2 === 0 ? 'section--light' : 'section--sand'"
+    >
       <v-container>
+        <div class="section__heading">
+          <div class="section__overline">Направление</div>
+          <h2 class="section__title">{{ group.title }}</h2>
+          <p class="section__description">{{ group.description }}</p>
+        </div>
+
         <v-row>
-          <v-col v-for="service in services" :key="service.slug" cols="12" md="6" lg="4">
+          <v-col
+            v-for="service in services.filter((item) => item.group === group.id)"
+            :key="service.slug"
+            cols="12"
+            md="6"
+            lg="4"
+          >
             <v-card class="surface-card page-card d-flex flex-column" elevation="0" :to="`/services/${service.slug}/`">
               <v-card-item>
                 <v-avatar size="44" color="primary" variant="tonal" class="mb-3">
@@ -38,11 +56,13 @@ import { services } from '@/content/services'
                   {{ service.title }}
                 </v-card-title>
               </v-card-item>
-              <v-card-text class="rb-muted flex-grow-1">{{ service.description }}</v-card-text>
-              <v-card-actions class="px-4 pb-4">
-                <v-btn variant="text" color="primary" append-icon="mdi-arrow-right">
-                  Подробнее
-                </v-btn>
+              <v-card-text class="rb-muted flex-grow-1">
+                {{ service.description }}
+                <div v-if="service.price" class="service-price">{{ service.price }}</div>
+              </v-card-text>
+              <v-card-actions class="px-4 pb-4 service-link">
+                <span>Подробнее</span>
+                <v-icon icon="mdi-arrow-right" size="20" />
               </v-card-actions>
             </v-card>
           </v-col>
@@ -51,3 +71,18 @@ import { services } from '@/content/services'
     </section>
   </main>
 </template>
+
+<style scoped>
+.service-price {
+  margin-top: 14px;
+  color: var(--rb-color-accent);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.service-link {
+  gap: 6px;
+  color: var(--rb-color-accent);
+  font-weight: 800;
+}
+</style>

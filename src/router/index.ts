@@ -8,34 +8,19 @@ import { routeMeta, siteConfig } from '@/config/site'
 import { articles } from '@/content/articles'
 import { cases } from '@/content/cases'
 import { services } from '@/content/services'
-import AboutPage from '@/pages/AboutPage.vue'
-import ArticlePage from '@/pages/ArticlePage.vue'
-import BlogIndexPage from '@/pages/BlogIndexPage.vue'
-import CasePage from '@/pages/CasePage.vue'
-import CasesIndexPage from '@/pages/CasesIndexPage.vue'
-import ContactsPage from '@/pages/ContactsPage.vue'
-import EstimatePage from '@/pages/EstimatePage.vue'
-import HomePage from '@/pages/HomePage.vue'
-import NotFoundPage from '@/pages/NotFoundPage.vue'
-import PrivacyPage from '@/pages/PrivacyPage.vue'
-import PricesPage from '@/pages/PricesPage.vue'
-import PortfolioIndexPage from '@/pages/PortfolioIndexPage.vue'
-import PortfolioItemPage from '@/pages/PortfolioItemPage.vue'
-import ServicePage from '@/pages/ServicePage.vue'
-import ServicesIndexPage from '@/pages/ServicesIndexPage.vue'
 import { portfolioItems } from '@/content/portfolio'
 
 export const routes: readonly RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
-    component: HomePage,
-    meta: routeMeta.home,
+    component: () => import('@/pages/HomePage.vue'),
+    meta: { ...routeMeta.home, hasHomeFaqJsonLd: true },
   },
   {
     path: '/services/',
     name: 'services',
-    component: ServicesIndexPage,
+    component: () => import('@/pages/ServicesIndexPage.vue'),
     meta: routeMeta.services,
   },
   {
@@ -43,68 +28,68 @@ export const routes: readonly RouteRecordRaw[] = [
     // поэтому объявляем маршрут явно (до динамических /services/:slug/).
     path: '/services/project-estimate/',
     name: 'estimate',
-    component: EstimatePage,
+    component: () => import('@/pages/EstimatePage.vue'),
     meta: { ...routeMeta.estimate, hasEstimateJsonLd: true },
   },
   {
     path: '/prices/',
     name: 'prices',
-    component: PricesPage,
+    component: () => import('@/pages/PricesPage.vue'),
     meta: routeMeta.prices,
   },
   {
     path: '/portfolio/',
     name: 'portfolio',
-    component: PortfolioIndexPage,
+    component: () => import('@/pages/PortfolioIndexPage.vue'),
     meta: routeMeta.portfolio,
   },
   ...portfolioItems.map((item) => ({
     path: `/portfolio/${item.slug}/`,
     name: `portfolio-${item.slug}`,
-    component: PortfolioItemPage,
+    component: () => import('@/pages/PortfolioItemPage.vue'),
     props: { slug: item.slug },
     meta: {
-      title: `${item.title} — ${item.client} — портфолио ReBit Studio`,
+      title: `${item.title} — ReBit Studio`,
       description: item.summary,
     },
   })),
   ...services.map((service) => ({
     path: `/services/${service.slug}/`,
     name: `service-${service.slug}`,
-    component: ServicePage,
+    component: () => import('@/pages/ServicePage.vue'),
     props: { slug: service.slug },
     meta: {
-      title: `${service.title} — ReBit Studio`,
-      description: service.description,
+      title: service.metaTitle ?? `${service.title} — ReBit Studio`,
+      description: service.metaDescription ?? service.description,
       serviceSlug: service.slug,
     },
   })),
   {
     path: '/cases/',
     name: 'cases',
-    component: CasesIndexPage,
+    component: () => import('@/pages/CasesIndexPage.vue'),
     meta: routeMeta.cases,
   },
   ...cases.map((caseItem) => ({
     path: `/cases/${caseItem.slug}/`,
     name: `case-${caseItem.slug}`,
-    component: CasePage,
+    component: () => import('@/pages/CasePage.vue'),
     props: { slug: caseItem.slug },
     meta: {
-      title: `${caseItem.title} — ${caseItem.client} — ReBit Studio`,
+      title: `${caseItem.title} — ReBit Studio`,
       description: caseItem.description,
     },
   })),
   {
     path: '/about/',
     name: 'about',
-    component: AboutPage,
+    component: () => import('@/pages/AboutPage.vue'),
     meta: routeMeta.about,
   },
   {
     path: '/blog/',
     name: 'blog',
-    component: BlogIndexPage,
+    component: () => import('@/pages/BlogIndexPage.vue'),
     meta: routeMeta.blog,
   },
   ...articles
@@ -112,7 +97,7 @@ export const routes: readonly RouteRecordRaw[] = [
     .map((article) => ({
       path: `/blog/${article.slug}/`,
       name: `article-${article.slug}`,
-      component: ArticlePage,
+      component: () => import('@/pages/ArticlePage.vue'),
       props: { slug: article.slug },
       meta: {
         title: article.metaTitle,
@@ -123,19 +108,19 @@ export const routes: readonly RouteRecordRaw[] = [
   {
     path: '/contacts/',
     name: 'contacts',
-    component: ContactsPage,
+    component: () => import('@/pages/ContactsPage.vue'),
     meta: routeMeta.contacts,
   },
   {
     path: '/privacy/',
     name: 'privacy',
-    component: PrivacyPage,
+    component: () => import('@/pages/PrivacyPage.vue'),
     meta: routeMeta.privacy,
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
-    component: NotFoundPage,
+    component: () => import('@/pages/NotFoundPage.vue'),
     meta: {
       title: 'Страница не найдена — ReBit Studio',
       description: 'Такой страницы нет. Вернитесь на главную или выберите нужный раздел сайта ReBit Studio.',
